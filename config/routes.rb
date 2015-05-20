@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   get 'comments/new'
 
   get 'comments/create'
@@ -16,6 +17,16 @@ Rails.application.routes.draw do
   get 'users/update'
 
   get 'users/show'
+=======
+
+  resources :articles, only: [:show, :new, :create, :index]
+
+# do
+#     resources :comments, only: [:show, :create, :destroy]
+#   endj
+
+
+>>>>>>> 740210da277a561705162af4966fde3c0121821d
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
