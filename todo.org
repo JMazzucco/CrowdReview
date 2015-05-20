@@ -1,0 +1,19 @@
+
+#+STARTUP: indent
+
+* Objects
+** Article
+*** url
+***
+** User
+** Comment
+*** score/rating
+
+
+resources
+
+articles
+  comments
+
+users
+sessions
