@@ -1,13 +1,27 @@
 class CommentsController < ApplicationController
-  def new
+	def index
+		@comments = Comment.all
+	end
+
+	def new
+	  @comment = Comment.new
+	end
+
+	def create
+  	@comment = Comment.new(comment_params)
+
+  	if @comment.save
+    	flash[:success] = 'Your comment was successfully added!'
+    	redirect_to comments_path
+  	else
+   	 render 'new'
+  	end
+	end
+
+private
+
+  def comment_params
+    params.require(:comment).permit(:title, :body, :author)
   end
 
-  def create
-  end
-
-  def edit
-  end
-
-  def update
-  end
 end

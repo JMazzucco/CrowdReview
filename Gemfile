@@ -39,6 +39,7 @@ gem 'sorcery'
 
 gem 'favorite_things'
 
+gem 'closure_tree'
 
 
 group :development, :test do

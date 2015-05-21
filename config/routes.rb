@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "articles#index"
 
   resources :password_resets
-  resources :comments
+  resources :comments, only: [:index, :new, :create]
   resources :articles, only: [:show, :new, :create, :index]
 
   resources :users
