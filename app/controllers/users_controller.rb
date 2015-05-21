@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_filter :require_login, only: [:index, :new, :create]
+  # skip_before_filter :require_login, only: [:index, :new, :create]
 
   def new
     @user = User.new
@@ -14,15 +14,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   def show
   end
 
+  private
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :username, :avatar)
   end
