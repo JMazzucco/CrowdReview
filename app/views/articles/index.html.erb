@@ -9,7 +9,7 @@
 
 <% @hits.each do |h| %>
   <div>
-    <h3><%= h.title %></h3>
+    <h3><%= raw(h.title) %></h3>
     <p><%= h.id %>    </p>
     <%= link_to "Article", controller: "articles", action: "show", id: h.id %>
   </div>
