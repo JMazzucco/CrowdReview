@@ -6,11 +6,15 @@ Rails.application.routes.draw do
   resources :comments
   resources :articles, only: [:show, :new, :create, :index]
 
+  get  'articles/:id' => 'articles#show', :constraints => { :id => /[^\/]+/ }
+
   resources :users
   resources :user_sessions
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
+
+
 
 # do
 #     resources :comments, only: [:show, :create, :destroy]
