@@ -25,6 +25,6 @@ class ArticlesController < ApplicationController
 
   def article_search(searchterm)
     client = PLOS::Client.new(ENV["API_KEY"])
-    client.search(searchterm, 100, 50)
+    client.search(searchterm, 50)
   end
 end
