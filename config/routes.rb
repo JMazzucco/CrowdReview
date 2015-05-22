@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root "articles#index"
 
   resources :password_resets
-  resources :comments, only: [:index, :new, :create]
   resources :articles, only: [:show, :new, :create, :index]
+  resources :comments, only: [:index, :create]
+  get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
+
 
   resources :users
   resources :user_sessions

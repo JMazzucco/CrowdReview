@@ -3,9 +3,11 @@
   <p class="text-muted">Added by <strong><%= comment.author %></strong> on
     <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
 
-  <blockquote>
-    <p><%= comment.body %></p>
-  </blockquote>
+	<blockquote>
+	  <p><%= comment.body %></p>
+	</blockquote>
+
+	<p><%= link_to 'reply', new_comment_path(comment.id) %></p>
 
 	<!-- parent_id on your from request to make new comment -->
   <%#= render  partial: "comments", locals: { comments: comment.children } %>
