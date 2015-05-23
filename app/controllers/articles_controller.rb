@@ -1,18 +1,21 @@
 require 'plos'
 
 class ArticlesController < ApplicationController
+  @@arefs = Hash.new
 
   def index
     if params[:search]
       @hits = article_search(params[:search])
+      @hits.each {|h| @@arefs[h.id] = h }
     else
       @hits = []
     end
   end
 
   def show
-    content = PLOS::Article.content(params[:id])
-    render xml: content
+    id = params[:id]
+    article_ref = @@arefs[id]
+    @abstract = article_ref.abstract
   end
 
   def create
