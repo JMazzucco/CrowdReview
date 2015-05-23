@@ -1,11 +1,14 @@
 class CommentsController < ApplicationController
+	  skip_before_filter :require_login, :only => [:index]
+
 	def index
 		@comments = Comment.hash_tree
 
 	end
 
 	def new
-	  @comment = Comment.new(parent_id: params[:parent_id])
+	  	@comment = Comment.new(parent_id: params[:parent_id])
+
 	end
 
 	def create
