@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 	def index
-		@comments = Comment.all
+		@comments = Comment.hash_tree
+
 	end
 
 	def new
@@ -17,7 +18,7 @@ class CommentsController < ApplicationController
 
 	  if @comment.save
 	    flash[:success] = 'Your comment was successfully added!'
-	    redirect_to root_url
+	    redirect_to comments_path
 	  else
 	    render 'new'
 	  end
