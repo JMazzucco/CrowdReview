@@ -1,2 +1,7 @@
-<h1>Comments#new</h1>
-<p>Find me in app/views/comments/new.html.erb</p>
+<h1>New comment</h1>
+<% if @comment.parent %>
+  <%= render "comments/comment", comment: @comment.parent, from_reply_form: true %>
+<% end %>
+
+
+<%= render 'form' %>

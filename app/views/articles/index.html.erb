@@ -1,5 +1,4 @@
 <h1>Articles#index</h1>
-
 <%= form_tag "/articles?search", :method => 'get'  do  %>
     <p>
         <%= text_field_tag :search, params[:search]  %>
@@ -14,3 +13,10 @@
     <%= link_to "Article", controller: "articles", action: "show", id: h.id %>
   </div>
 <% end %>
+
+<!-- Display all records from the Article Model -->
+<%# @articles.each do |article| %>
+	<h2><%#= link_to article.title, "/articles/#{article.id}" %></h2>
+	<p><%#= article.abstract %></p>
+<%# end %>
+

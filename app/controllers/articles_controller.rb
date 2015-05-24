@@ -1,9 +1,10 @@
 require 'plos'
 
 class ArticlesController < ApplicationController
-  @@arefs = Hash.new
+skip_before_filter :require_login
 
   def index
+    @articles = Article.all
     if params[:search]
       @hits = article_search(params[:search])
       @hits.each {|h| @@arefs[h.id] = h }
@@ -13,9 +14,12 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    article_ref = @@arefs[id]
-    @abstract = article_ref.abstract
+    # display an article from the database
+    # @article = Article.find(params[:id])
+    # @comments = @article.comments.hash_tree
+
+    content = PLOS::Article.content(params[:id])
+    render xml: content
   end
 
   def create
