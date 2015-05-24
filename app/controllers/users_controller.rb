@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
+
    skip_before_filter :require_login, only: [:new, :create]
+  # skip_before_filter :require_login, only: [:index, :new, :create]
+  before_filter :admin_user, only: :index
+
+  def index
+    @users = User.all
+  end
 
   def new
     @user = User.new
@@ -16,11 +23,17 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to users_path
   end
 
   private
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :username, :avatar)
   end
-
 end
