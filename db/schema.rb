@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150524170151) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
+    t.boolean  "admin"
   end
 
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
