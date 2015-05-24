@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   root "articles#index"
   resources :password_resets
   resources :comments
-  resources :articles, only: [:show, :new, :create, :index]
-  get  'articles/:id' => 'articles#show', :constraints => { :id => /[^\/]+/ }
   resources :articles, only: [:index, :new, :create, :show] do
     resources :comments, only: [:create]
     get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
