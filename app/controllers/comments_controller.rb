@@ -2,18 +2,12 @@ class CommentsController < ApplicationController
 	  skip_before_filter :require_login, :only => [:index]
 	  before_filter :load_article
 
-	# def index
-	# 	@comments = Comment.hash_tree
-
-	# end
-
 	def new
 	  @comment = Comment.new(parent_id: params[:parent_id], article_id: params[:article_id], user_id: current_user[:id])
 	end
 
 	def create
 	  if params[:comment][:parent_id].to_i > 0
-
 	    parent = Comment.find_by_id(params[:comment].delete(:parent_id))
 	    @comment = parent.children.build(comment_params)
 	  else
@@ -30,11 +24,10 @@ class CommentsController < ApplicationController
 
 	def show
 	end
-
 private
 
   def comment_params
-    params.require(:comment).permit(:title, :body, :author, :parent_id, :article_id, :user_id)
+    params.require(:comment).permit(:title, :body, :author, :article_id, :user_id)
   end
 
   def load_article

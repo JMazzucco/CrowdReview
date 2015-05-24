@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   root "articles#index"
   resources :articles, only: [:index, :new, :create, :show] do
-    resources :comments, only: [:new, :create, :show]
-    # get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
+    resources :comments, only: [:create]
+    get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
   end
   resources :users
   resources :user_sessions
