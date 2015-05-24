@@ -1,7 +1,7 @@
 <h1>Articles#show</h1>
 <p>Find me in app/views/articles/show.html.erb</p>
 
-<h1><%= @article.title %></h1>
+<h1><%= raw(@article.title) %></h1>
 <p><%= @article.abstract %></p>
 
  <div class="container">
