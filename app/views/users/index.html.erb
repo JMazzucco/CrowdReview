@@ -5,7 +5,7 @@
     <p>Photo:<%= user.avatar %></p>
     <p>Username:<%= user.username %></p>
     <p>Email:<%= user.email %></p>
-    <%= link_to "Delete User", deleteuser_path(user) %>
+    <%=link_to "Delete User",user_path(user.id), :method => :delete%>
   <% end %>
 
 

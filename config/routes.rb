@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   resources :user_sessions
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
-  get 'deleteuser/:id' => 'users#destroy', :as => :deleteuser
 
 # do
 #     resources :comments, only: [:show, :create, :destroy]
