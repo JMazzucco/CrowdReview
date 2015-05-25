@@ -1,13 +1,15 @@
 <div class="well">
   <h2><%= comment.title %></h2>
 
+  <!-- Need to refactor -->
   <% if comment.created_at == comment.updated_at %>
-	  <p class="text-muted">Added by <strong><%= User.find_by(id: comment.user_id).username %></strong> on
+	  <p class="text-muted">Added by <strong><%= link_to User.find_by(id: comment.user_id).username, user_path(comment.user_id)%>.</strong> on
 	    <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
 	<% else %>
-	  <p class="text-muted">Edited by <strong><%= User.find_by(id: comment.user_id).username %></strong> on
+	  <p class="text-muted">Edited by <strong><%= link_to User.find_by(id: comment.user_id).username, user_path(comment.user_id)%>.</strong> on
 	    <%= l(comment.updated_at, format: '%B, %d %Y %H:%M:%S') %></p>
 	<% end %>
+	<!-- ######### -->
 
   <blockquote>
   <p><%= comment.body %></p>
