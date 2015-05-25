@@ -5,6 +5,10 @@
   <p>Username:<%= @user.username %></p>
   <p>Email:<%= @user.email %></p>
 
+  <h4>Favorite Articles</h4>
+  <% @user.articles.each do |article| %>
+  <%= article.title %>
+  <% end %>
 
 	<h3>Your comments</h3>
 	<p>Total: <%= @total %></p>
