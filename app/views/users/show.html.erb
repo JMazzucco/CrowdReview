@@ -7,10 +7,11 @@
 
 
 	<h3>Your comments</h3>
-	<p>Total:<%= @total %></p>
+	<p>Total: <%= @total %></p>
 	<% if @comments %>
 		<% @comments.each do |comment| %>
-			<p><%= link_to comment.body, article_path(comment.article_id) %></p>
+			<h4><%= link_to Article.find(comment.article_id).title, article_path(comment.article_id) %></h4>
+			<p><em><%= comment.body %></em></p>
 		<% end %>
 	<% else %>
 		<p>No comments have been made yet</p>
