@@ -39,7 +39,12 @@ class CommentsController < ApplicationController
 
 	def upvote
 	  @comment = Comment.find(params[:comment_id])
-	  @comment.votes += 1
+	  @last_updated = @comment.updated_at
+	  @new_vote = @comment.votes += 1
+	  @comment.update_attribute(:votes, @new_vote)
+
+	  #return updated_at to its previous value
+	 	@comment.update_attribute(:updated_at,  @last_updated)
 	  redirect_to article_path(params[:article_id])
 	end
 
