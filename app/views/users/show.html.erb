@@ -5,3 +5,7 @@
   <p>Username:<%= @user.username %></p>
   <p>Email:<%= @user.email %></p>
 
+  <% if current_user.admin? %>
+  <%= link_to "See all users", users_path %>
+  <% end %>
+
