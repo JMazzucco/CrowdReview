@@ -1,8 +1,15 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<h1><%=raw(@article.title)%></h1>
 
-<h1><%= raw(@article.title) %></h1>
+<h4>Authors:</h4>
+<p><%= @article.authors %></p>
+
+<h4>Publication Date:</h4>
+<p><%=@article.publication_date.to_formatted_s(:long_ordinal)%></p>
+
+<h4>Abstract:</h4>
 <p><%= @article.abstract %></p>
+
+<%= link_to "Full Text",  "http://journals.plos.org/plosone/article?id=#{@article.plos_id}"%>
 
  <div class="container">
     <h1>Join the discussion</h1>
