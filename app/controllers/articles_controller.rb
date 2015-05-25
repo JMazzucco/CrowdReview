@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @comments = @article.comments.hash_tree
-  end                           #
+  end
 
   def create
   end
