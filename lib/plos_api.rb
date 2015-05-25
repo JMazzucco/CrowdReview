@@ -8,9 +8,15 @@ class PlosApi
 
   def get_articles
     searchterm = 'apple'
-    results = @client.search(searchterm, 50)
+    results = @client.search(searchterm, 5)
     results.each do |r|
-      Article.create(title: r.title, abstract: r.abstract )
+
+      if ( r.title && r.abstract && r.authors && r.id && r.published_at  )
+        Article.create(title: r.title, abstract: r.abstract[0],
+                     publication_date: r.published_at,
+                     authors: r.authors.to_sentence,
+                     plos_id: r.id )
+      end
     end
   end
 
