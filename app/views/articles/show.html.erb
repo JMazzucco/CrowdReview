@@ -1,6 +1,8 @@
 <h1><%= raw(@article.title) %></h1>
 
-<%= button_to 'Favorite',user_path(@article),:method => 'post' %>
+<%= form_for([@article, @favorite]) do |f| %>
+  <%= f.submit 'Favorite' %>
+<% end %>
 
 <p><%= @article.abstract %></p>
 

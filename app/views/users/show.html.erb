@@ -5,9 +5,9 @@
   <p>Username:<%= @user.username %></p>
   <p>Email:<%= @user.email %></p>
 
-  <h4>Favorite Articles</h4>
-  <% @user.articles.each do |article| %>
-  <%= article.title %>
+  <h3>Favorite Articles</h3>
+  <% @user.favorite_articles.each do |article| %>
+  <p> <%= article.title %></p>
   <% end %>
 
 	<h3>Your comments</h3>
