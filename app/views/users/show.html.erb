@@ -1,7 +1,7 @@
 <h1>User Profile</h1>
 
+	<div><%= image_tag @user.avatar.url(:medium) %></div>
   <p>User ID:<%= @user.id %></p>
-  <p>Photo:<%= @user.avatar %></p>
   <p>Username:<%= @user.username %></p>
   <p>Email:<%= @user.email %></p>
 
