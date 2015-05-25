@@ -17,7 +17,7 @@
 
 	<% from_reply_form ||= nil %>
 	<% unless from_reply_form %>
-	  <% if comment.leaf? %>
+	  <% if comment.leaf? && comment.parent_id.nil? %>
 	    <small class="text-muted">There are no replies yet - be the first one to reply!</small>
 
 	    <% if comment.user_id == current_user.id %>
