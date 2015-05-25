@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
-   skip_before_filter :require_login, only: [:new, :create]
-  # skip_before_filter :require_login, only: [:index, :new, :create]
+  skip_before_filter :require_login, only: [:new, :create]
   before_filter :admin_user, only: :index
 
   def index
@@ -10,6 +9,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @uploader = AvatarUploader.new
   end
 
   def create
