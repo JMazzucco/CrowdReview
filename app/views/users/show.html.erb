@@ -5,6 +5,17 @@
   <p>Username:<%= @user.username %></p>
   <p>Email:<%= @user.email %></p>
 
+
+	<h3>Your comments</h3>
+	<p>Total:<%= @total %></p>
+	<% if @comments %>
+		<% @comments.each do |comment| %>
+			<p><%= link_to comment.body, article_path(comment.article_id) %></p>
+		<% end %>
+	<% else %>
+		<p>No comments have been made yet</p>
+	<% end %>
+
   <% if current_user.admin? %>
   <%= link_to "See all users", users_path %>
   <% end %>
