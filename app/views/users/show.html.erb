@@ -11,20 +11,6 @@
   <%= link_to "Delete", user_favorite_path(@user, favorite),method: :delete%></p>
   <% end %>
 
-   <%# @user.favorite_articles.each do |article| %>
-  <%#=link_to raw(article.title), article_path(article) %>
-  <%#= link_to "Delete",article_favorite_path(favorite.article,favorite),method: :delete %>
-  <%# end %>
-
-  <%#= form_for([@user, @favorite]),:action => :delete, do |f| %>
-  <%#= f.submit 'Favorite' %>
-  <%# end %>
-
-      <%#= button_to 'Delete Favorite',
-           article_favorite_path(@user, :article_id => article.id),
-          :method => 'delete' %>
-  <%#= button_to "Delete Favorite", { action: "delete", id: article.id } %>
-
 	<h3>Your comments</h3>
 	<p>Total: <%= @total %></p>
 	<% if @comments %>
