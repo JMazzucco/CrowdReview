@@ -22,7 +22,7 @@
 	  <% if comment.leaf? && comment.parent_id.nil? %>
 	    <small class="text-muted">There are no replies yet - be the first one to reply!</small>
 
-	    <% if comment.user_id == current_user.id %>
+	    <% if current_user && comment.user_id == current_user.id %>
 	 			 <p><%= link_to 'edit', edit_article_comment_path(@article, comment.id) %></p>
 	  	<% end %>
 	  <% end %>
