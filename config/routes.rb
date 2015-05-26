@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   end
 
 
-  resources :users
+  resources :users do
+    resources :favorites, only: [:create, :destroy]
+  end
   resources :user_sessions
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
