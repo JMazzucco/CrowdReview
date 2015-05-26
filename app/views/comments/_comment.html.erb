@@ -1,10 +1,14 @@
-<div class="well">
+<%# if comment.parent_id.nil? %>
+	<!-- <div class="root"> -->
+<%# else %>
+	<!-- <div class="reply"> -->
+<%# end %>
   <h2><%= comment.title %></h2>
 
   <!-- Need to refactor -->
   <%= pluralize(comment.votes.count, "vote") %>
 
-<%= button_to '+1', article_comment_upvote_path(comment.article_id, comment.id), method: :post %>
+	<%= button_to '+1', article_comment_upvote_path(comment.article_id, comment.id), method: :post %>
 
   <% if comment.created_at == comment.updated_at %>
 	  <p class="text-muted">Added by <strong><%= link_to User.find_by(id: comment.user_id).username, user_path(comment.user_id)%>.</strong> on

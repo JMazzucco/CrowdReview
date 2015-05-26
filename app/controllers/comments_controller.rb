@@ -39,22 +39,14 @@ class CommentsController < ApplicationController
 
 	def upvote
 		@comment = Comment.find(params[:comment_id])
-		unless @comment.votes.where(:user_id => current_user.id).exists?
+		unless @comment.votes.where(user: current_user).exists?
 
-	   @comment.votes.create(user_id: current_user.id)
+	   @comment.votes.create(user: current_user)
 	  else
 	 	 flash[:notice] = "You can only vote once on another persons comment"
     end
 
     redirect_to article_path(params[:article_id])
-
-	  # @last_updated = @comment.updated_at
-	  # @new_vote = @comment.votes += 1
-	  # @comment.update_attribute(:votes, @new_vote)
-
-	  # #return updated_at to its previous value
-	 	# @comment.update_attribute(:updated_at,  @last_updated)
-	  # redirect_to article_path(params[:article_id])
 	end
 
 private
