@@ -7,8 +7,8 @@ class PlosApi
   end
 
   def get_articles
-    searchterm = 'apple'
-    results = @client.search(searchterm, 5)
+
+    results = @client.all(0,50)
     results.each do |r|
 
       if ( r.title && r.abstract && r.authors && r.id && r.published_at  )
