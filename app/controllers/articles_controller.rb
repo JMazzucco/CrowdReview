@@ -1,5 +1,3 @@
-require 'plos'
-
 class ArticlesController < ApplicationController
   skip_before_filter :require_login
 
