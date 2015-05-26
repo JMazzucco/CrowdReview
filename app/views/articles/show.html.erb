@@ -11,13 +11,16 @@
   <p><%= @article.publication_date.to_formatted_s(:long_ordinal) %></p>
 <% end %>
 
-<%= form_for([@article, @favorite]) do |f| %>
-  <% if current_user.favorites.find_by(article: @article) %>
-    <%= f.submit 'Unfavorite', class: 'green' %>
-  <% else %>
-    <%= f.submit 'Favorite', class: 'yellow' %>
+<% if current_user %>
+  <%= form_for([@article, @favorite]) do |f| %>
+    <% if current_user.favorites.find_by(article: @article) %>
+      <%= f.submit 'Unfavorite', class: 'green' %>
+    <% else %>
+      <%= f.submit 'Favorite', class: 'yellow' %>
+    <% end %>
   <% end %>
 <% end %>
+
 
 <% if @article.abstract %>
   <h4>Abstract:</h4>
