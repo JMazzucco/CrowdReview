@@ -1,7 +1,8 @@
 <h1>New comment</h1>
 <% if @comment.parent %>
-  <%= render "comments/comment", comment: @comment.parent, from_reply_form: true %>
+  <%= @comment.parent.body %>
+ <p class="text-muted">Added by <strong><%= link_to User.find_by(id: @comment.parent.user_id).username, user_path(@comment.parent.user_id)%>.</strong> on
+	    <%= l(@comment.parent.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
 <% end %>
-
 
 <%= render 'form' %>
