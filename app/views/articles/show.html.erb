@@ -1,4 +1,4 @@
-<h1><%=raw(@article.title)%></h1>
+<h1><%= raw(@article.title) %></h1>
 
 <h4>Authors:</h4>
 <p><%= @article.authors %></p>
@@ -7,6 +7,10 @@
 <p><%=@article.publication_date.to_formatted_s(:long_ordinal)%></p>
 
 <h4>Abstract:</h4>
+<%= form_for([@article, @favorite]) do |f| %>
+  <%= f.submit 'Favorite' %>
+<% end %>
+
 <p><%= @article.abstract %></p>
 
 <%= link_to "Full Text",  "http://journals.plos.org/plosone/article?id=#{@article.plos_id}"%>

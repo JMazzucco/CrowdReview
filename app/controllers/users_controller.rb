@@ -26,6 +26,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @comments = Comment.where(user_id: params[:id])
     @total = Comment.where(user_id: params[:id]).count
+    @favorite = @user.favorites
+
+
     # unless (@user.id == current_user.id) || current_user.admin?
     #   flash[:notice] = "You don't have access to this profile!"
     #   redirect_to root_path
