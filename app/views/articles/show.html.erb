@@ -1,17 +1,28 @@
 <h1><%= raw(@article.title) %></h1>
 
-<h4>Authors:</h4>
-<p><%= @article.authors %></p>
 
-<h4>Publication Date:</h4>
-<p><%=@article.publication_date.to_formatted_s(:long_ordinal)%></p>
-
-<h4>Abstract:</h4>
-<%= form_for([@article, @favorite]) do |f| %>
-  <%= f.submit 'Favorite' %>
+<% if @article.authors %>
+  <h4>Authors:</h4>
+  <p><%= @article.authors %></p>
 <% end %>
 
-<p><%= @article.abstract %></p>
+<% if @article.publication_date %>
+  <h4>Publication Date:</h4>
+  <p><%= @article.publication_date.to_formatted_s(:long_ordinal) %></p>
+<% end %>
+
+<%= form_for([@article, @favorite]) do |f| %>
+  <% if current_user.favorites.find_by(article: @article) %>
+    <%= f.submit 'Unfavorite', class: 'green' %>
+  <% else %>
+    <%= f.submit 'Favorite', class: 'yellow' %>
+  <% end %>
+<% end %>
+
+<% if @article.abstract %>
+  <h4>Abstract:</h4>
+  <p><%= @article.abstract %></p>
+<% end %>
 
 <%= link_to "Full Text",  "http://journals.plos.org/plosone/article?id=#{@article.plos_id}"%>
 

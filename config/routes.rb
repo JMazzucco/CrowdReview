@@ -3,13 +3,12 @@ Rails.application.routes.draw do
   root "articles#index"
   resources :password_resets
   resources :articles, only: [:index, :new, :create, :show] do
+    get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
     resources :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :edit, :update] do
         post 'upvote'
     end
-    get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
   end
-
 
   resources :users do
     resources :favorites, only: [:create, :destroy]
@@ -17,10 +16,6 @@ Rails.application.routes.draw do
   resources :user_sessions
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
-
-# do
-#     resources :comments, only: [:show, :create, :destroy]
-#   endj
 
 
   # The priority is based upon order of creation: first created -> highest priority.
