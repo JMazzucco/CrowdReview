@@ -6,11 +6,17 @@
   <p>Email:<%= @user.email %></p>
 
   <h3>Favorite Articles</h3>
-  <% @user.favorite_articles.each do |article| %>
-  <p><%= link_to raw(article.title), article_path(article) %>
-  <%#= link_to "Delete", user_favorite_path%></p>
+  <% @user.favorites.each do |favorite| %>
+  <p><%= link_to raw(favorite.article.title), article_path(favorite.article)%>
+  <%= link_to "Delete", user_favorite_path(@user, favorite),method: :delete%></p>
+  <% end %>
 
-  <%#= form_for([@user, @favorite]), method: :delete, do |f| %>
+   <%# @user.favorite_articles.each do |article| %>
+  <%#=link_to raw(article.title), article_path(article) %>
+  <%#= link_to "Delete",article_favorite_path(favorite.article,favorite),method: :delete %>
+  <%# end %>
+
+  <%#= form_for([@user, @favorite]),:action => :delete, do |f| %>
   <%#= f.submit 'Favorite' %>
   <%# end %>
 
@@ -18,7 +24,6 @@
            article_favorite_path(@user, :article_id => article.id),
           :method => 'delete' %>
   <%#= button_to "Delete Favorite", { action: "delete", id: article.id } %>
-  <% end %>
 
 	<h3>Your comments</h3>
 	<p>Total: <%= @total %></p>
