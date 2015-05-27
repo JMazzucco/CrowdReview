@@ -7,6 +7,9 @@ class ArticlesController < ApplicationController
     else
       Article.all
     end
+
+    @articles = @articles.order('articles.publication_date DESC').page(params[:page])
+
   end
 
   def show
