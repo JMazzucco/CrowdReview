@@ -41,7 +41,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address   => "smtp.mandrillapp.com",
     :port      => 25,
-    :user_name => ENV["app37226139@heroku.com"],
-    :password  => ENV["q9YR7zVtNC3YoTuKqzHLUg"]
+    :user_name => ENV["mandrill_user"],
+    :password  => ENV["mandrill_api_key"]
   }
 end
