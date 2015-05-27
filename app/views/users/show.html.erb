@@ -5,11 +5,13 @@
   <p>Username:<%= @user.username %></p>
   <p>Email:<%= @user.email %></p>
 
+<% if current_user.id == @user.id %>
   <h3>Favorite Articles</h3>
   <% @user.favorites.each do |favorite| %>
   <p><%= link_to raw(favorite.article.title), article_path(favorite.article)%>
   <%= link_to "Delete", user_favorite_path(@user, favorite),method: :delete%></p>
   <% end %>
+<% end %>
 
 	<h3>Your comments</h3>
 	<p>Total: <%= @total %></p>
