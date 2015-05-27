@@ -218,7 +218,7 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors (~> 2.1.1)
-  bootstrap-sass
+  bootstrap-sass (~> 3.3.4)
   byebug
   carrierwave
   closure_tree

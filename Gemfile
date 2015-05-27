@@ -41,7 +41,7 @@ gem 'favorite_things'
 
 gem 'closure_tree'
 
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.3.4'
 
 gem 'carrierwave'
 gem 'mini_magick'
