@@ -49,7 +49,7 @@ gem 'mini_magick'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
+  gem 'letter_opener'
   gem 'faker'
 	gem 'better_errors', '~> 2.1.1'
   # Access an IRB console on exception pages or by using <%= console %> in views
