@@ -1,10 +1,6 @@
-body{
-  background: #fffff;
-  background-image: url("contemporary_china.png");
-}
 
 .search-bar {
-	background-color: rgba(1, 89, 189, 0.54);
+	/*background-color: rgba(1, 89, 189, 0.54);*/
 	height: 160px;
  }
 

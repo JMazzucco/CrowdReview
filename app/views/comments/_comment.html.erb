@@ -21,7 +21,7 @@
   <% end %>
   <!-- ######### -->
 
-  <% if current_user.admin %>
+  <% if current_user && current_user.admin? %>
     <% if comment.flagged %>
         <%= form_for([@article, comment]) do |f| %>
         <%= f.hidden_field :flagged, value: false %>
