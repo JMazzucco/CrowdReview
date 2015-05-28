@@ -10,15 +10,27 @@
 	</div>
 </div>
 
-<h5><%= @articles.count %> results</h5>
-<div class="results-container">
+<div class="results-count">
+	<p><%= @articles.count %> results</p>
+</div>
 	<% @articles.each do |article| %>
 	    <% if article.id % 2 == 0 %>
-	  	  <div class="results-even">
+					<div class="results-container">
+					<%= link_to "/articles/#{article.id}" do %>
+					<div class="results-even">
+						<p class="results-text"><%= raw(article.title) %></p>
+					</div>
+					</div>
+					<% end %>
 			<% else %>
-	    	<div class="results-odd">
-	    <% end %>
-	    		<p class="results-text"><%= link_to raw(article.title), "/articles/#{article.id}" %></p>
+	    	<div class="results-container">
+					<%= link_to "/articles/#{article.id}" do %>
+					<div class="results-odd">
+						<p class="results-text"><%= raw(article.title) %></p>
+					</div>
+					</div>
+						<% end %>
+	    		<% end %>
 	    	</div>
 	<% end %>
 </div>
