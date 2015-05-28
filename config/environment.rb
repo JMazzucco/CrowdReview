@@ -6,4 +6,3 @@ Rails.application.initialize!
 
 
 
-
