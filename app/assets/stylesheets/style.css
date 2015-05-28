@@ -119,3 +119,12 @@ a:active {
 .results-count > p {
 	font-weight: bold;
 }
+
+ .abstract {
+	font-family: garamond;
+ }
+
+ .text-muted {
+ 	text-align: right;
+ 	color: white;
+ }

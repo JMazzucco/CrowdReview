@@ -1,5 +1,7 @@
-<h1><%= raw(@article.title) %></h1>
 
+<div class="search-bar">
+  <h1><%= raw(@article.title) %></h1>
+</div>
 
 <% if @article.authors %>
   <h4>Authors:</h4>
@@ -21,10 +23,9 @@
   <% end %>
 <% end %>
 
-
 <% if @article.abstract %>
   <h4>Abstract:</h4>
-  <p><%= @article.abstract %></p>
+  <p class="abstract"><%= @article.abstract %></p>
 <% end %>
 
 <%= link_to "Full Text",  "http://journals.plos.org/plosone/article?id=#{@article.plos_id}", target: "_blank"%>
