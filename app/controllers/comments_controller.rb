@@ -29,7 +29,6 @@ class CommentsController < ApplicationController
 
 	def update
 		@comment = Comment.find(params[:id])
-
 		if @comment.update_attributes(comment_params)
       redirect_to article_path(@comment.article_id)
     else
@@ -52,7 +51,7 @@ class CommentsController < ApplicationController
 private
 
   def comment_params
-    params.require(:comment).permit(:title, :body, :article_id, :user_id)
+    params.require(:comment).permit(:title, :body, :article_id, :user_id, :flagged)
   end
 
   def load_article

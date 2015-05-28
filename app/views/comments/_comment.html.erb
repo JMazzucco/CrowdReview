@@ -13,11 +13,28 @@
   <% if comment.created_at == comment.updated_at %>
 	  <p class="text-muted">Added by <strong><%= link_to User.find_by(id: comment.user_id).username, user_path(comment.user_id)%>.</strong> on
 	    <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
-	<% else %>
-	  <p class="text-muted">Edited by <strong><%= link_to User.find_by(id: comment.user_id).username, user_path(comment.user_id)%>.</strong> on
-	    <%= l(comment.updated_at, format: '%B, %d %Y %H:%M:%S') %></p>
-	<% end %>
-	<!-- ######### -->
+
+
+  <% else %>
+    <p class="text-muted">Edited by <strong><%= link_to User.find_by(id: comment.user_id).username, user_path(comment.user_id)%>.</strong> on
+      <%= l(comment.updated_at, format: '%B, %d %Y %H:%M:%S') %></p>
+  <% end %>
+  <!-- ######### -->
+
+  <% if current_user.admin %>
+    <% if comment.flagged %>
+        <%= form_for([@article, comment]) do |f| %>
+        <%= f.hidden_field :flagged, value: false %>
+        <%= f.submit 'Flag comment' %>
+        <% end %>
+    <% else %>
+      <%= form_for([@article, comment]) do |f| %>
+      <%= f.hidden_field :flagged, value: true %>
+      <%= f.submit 'Flagged' %>
+      <% end %>
+    <% end %>
+  <% end %>
+
 
   <blockquote>
   <p><%= comment.body %></p>
