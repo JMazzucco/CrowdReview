@@ -9,12 +9,19 @@
   <body>
 
   <div id="nav">
-    <% if current_user %>
-      Signed in as <%= link_to current_user.email, user_path(current_user)%>. <%= image_tag current_user.avatar.url(:thumb) %><%= link_to "Log out", user_session_path("current"), :method => :delete %>
-    <% else %>
-      <%= link_to "Register", new_user_path %> |
-      <%= link_to "Login", :login %>
-    <% end %>
+    <div id="wrapper">
+        <a id="" href="/">
+         <%= image_tag("logo.png", :alt => "",:id => 'logo') %>
+        </a>
+      <div class="signup">
+      <% if current_user %>
+        Signed in as <%= link_to current_user.email, user_path(current_user)%>. <%= image_tag current_user.avatar.url(:thumb) %><%= link_to "Log out", user_session_path("current"), :method => :delete %>
+      <% else %>
+        <%= link_to "Register", new_user_path %> |
+        <%= link_to "Login", :login %>
+      <% end %>
+      </div>
+    </div>
   </div>
   <div>
     <p id="notice"><%= flash[:notice] %></p>
