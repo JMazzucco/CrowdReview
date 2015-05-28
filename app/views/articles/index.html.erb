@@ -9,13 +9,16 @@
 	  </div>
 	</div>
 </div>
+
 <h5><%= @articles.count %> results</h5>
-<% @articles.each do |article| %>
-    <% if article.id % 2 == 0 %>
-  	  <div class="results-even">
-		<% else %>
-    	<div class="results-odd">
-    <% end %>
-    		<p class="results-text"><%= link_to raw(article.title), "/articles/#{article.id}" %></p>
-    	</div>
-<% end %>
+<div class="results-container">
+	<% @articles.each do |article| %>
+	    <% if article.id % 2 == 0 %>
+	  	  <div class="results-even">
+			<% else %>
+	    	<div class="results-odd">
+	    <% end %>
+	    		<p class="results-text"><%= link_to raw(article.title), "/articles/#{article.id}" %></p>
+	    	</div>
+	<% end %>
+</div>
