@@ -17,7 +17,7 @@
 	<p>Total: <%= @total %></p>
 	<% if @comments %>
 		<% @comments.each do |comment| %>
-			<h4><%= link_to Article.find(comment.article_id).title, article_path(comment.article_id) %></h4>
+			<h4><%= link_to raw(Article.find(comment.article_id).title), article_path(comment.article_id) %></h4>
 			<p><em><%= comment.body %></em></p>
 		<% end %>
 	<% else %>
