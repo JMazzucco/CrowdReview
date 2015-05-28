@@ -34,14 +34,10 @@ Rails.application.configure do
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
+ #config.action_mailer.default_url_options = { :host => 'localhost' }
   config.assets.raise_runtime_errors = true
   config.action_mailer.delivery_method = :letter_opener
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.action_mailer.smtp_settings = {
-    :address   => "smtp.mandrillapp.com",
-    :port      => 25,
-    :user_name => ENV["mandrill_user"],
-    :password  => ENV["mandrill_api_key"]
-  }
+
 end
