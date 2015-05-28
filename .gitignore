@@ -17,3 +17,5 @@ public/uploads/*
 
 # Ignore application configuration
 /config/application.yml
+
+/app/assets/images/.DS_Store
