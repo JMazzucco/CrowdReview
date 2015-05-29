@@ -14,8 +14,37 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html{
+  width:100%;
+  height:100%;
+}
+
+a{
+  color:blue;
+}
+
+.check{
+  width:75%;
+  margin-left:12.5%;
+}
+
 body {
- background-color: rgb(220, 200, 234);
+ // background-image: url("contemporary_china.png");
+  // background: radial-gradient(ellipse at center,  #0869ad 0%, darken($color, 50%) 100%);
+ background-color: #7FDBFF;
+ color:black;
+// #7FDBFF
+
+ // #74BBD7
+ // rgba(76, 171, 95, 0.44)
+ // width:100%;
+ // height:100%;
+ }
+
+.bgcolor{
+ // background-color: rgba(76, 171, 95, 0.44);
+ // opacity:0.7;
+ // z-index: -1;
 }
 
 .align {
@@ -28,22 +57,46 @@ body {
 /*.replies .replies .replies .replies .replies {margin-left: 0;}*/
 
 #nav {
-  background-color: #e1563f;
+  background-color: #FF7F7F;
+  // #7FDBFF
+  // rgba(225, 86, 63, 0.56)
   height: 60px;
+}
+
+img{
+   margin-top:-4px;
 }
 
 #logo {
   width:195px;
-  height:60px;
+  height:63px;
   opacity:0.7;
+
 }
 
 .signup {
-  background-color:rgba(145, 222, 255, 0.72);
+  // background-color:rgba(145, 222, 255, 0.72);
  // rgba(145, 222, 255, 0.72)(145, 255, 176, 0.72)
   float:right;
-  margin-top:20px;
+  margin-top:10px;
   padding-right:5px;
   padding-left:5px;
+}
+
+.avatar {
+ border-radius: 171px;
+}
+
+.avatar2 {
+ border-radius: 135px;
+
+}
+
+.userinfo{
+  padding-top:50px;
+}
+
+.link{
+  color:yellow;
 }
 

@@ -1,18 +1,8 @@
-<%# if comment.parent_id.nil? %>
-	<!-- <div class="root"> -->
-<%# else %>
-	<!-- <div class="reply"> -->
-<%# end %>
-  <h2><%= comment.title %></h2>
 
-
-
+<<<<<<< HEAD
 <div class="panel-container">
-
   <% from_reply_form ||= nil %>
   <div class="links-container">
-
-
   <% unless from_reply_form %>
       <p class="comment-links" ><% if current_user && comment.user_id == current_user.id %>
          <%= link_to 'edit', edit_article_comment_path(@article, comment.id) %>
@@ -40,6 +30,25 @@
   </div>
 
   <% if current_user && current_user.admin %>
+=======
+  <!-- Need to refactor -->
+  <%= pluralize(comment.votes.count, "vote") %>
+
+	<%= button_to '+1', article_comment_upvote_path(comment.article_id, comment.id), method: :post,:class=> 'btn btn-primary' %>
+
+  <% if comment.created_at == comment.updated_at %>
+	  <p class="text-muted">Added by <strong><%= link_to User.find_by(id: comment.user_id).username, user_path(comment.user_id)%>.</strong> on
+	    <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
+
+
+  <% else %>
+    <p class="text-muted">Edited by <strong><%= link_to User.find_by(id: comment.user_id).username, user_path(comment.user_id)%>.</strong> on
+      <%= l(comment.updated_at, format: '%B, %d %Y %H:%M:%S') %></p>
+  <% end %>
+  <!-- ######### -->
+
+  <% if current_user && current_user.admin? %>
+>>>>>>> front_end
     <% if comment.flagged %>
         <%= form_for([@article, comment]) do |f| %>
         <%= f.hidden_field :flagged, value: false %>
