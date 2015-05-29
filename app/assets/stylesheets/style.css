@@ -1,6 +1,6 @@
 .search-bar {
 	/*background-color: rgba(1, 89, 189, 0.54);*/
-  background-color: #39CCCC;
+/*  background-color: #39CCCC;*/
 	height: 200px;
  }
 
@@ -70,9 +70,6 @@ transition: background .55s ease;
     background: #ffffff;
 }
 
-.cheeko{
-  background-color: #7FDBFF;
-}
 .results-container{
 	margin: 0.5% 2%;
 	background-color: rgba(255, 255, 255, 0.55);
@@ -83,12 +80,20 @@ transition: background .55s ease;
 }
 
 .results-even {
-	background-color: #e4e4e4;
+/*	background-color: #e4e4e4;*/
+  /*background-color: #B6A4CD;*/
+  background-color: #7EE7E7;
+  /*#A0DDDD*/
+ /* #7EDADA
+  #7EE7E7
+  #7EC3E7*/
 	min-height: 50px;
 }
 
 .results-odd {
-	background-color: #f6f6f6;
+	background-color: rgba(154, 166, 229, 0.67);
+  /*#C9AAD3*/
+  /*rgba(154, 166, 229, 0.67)*/
 	min-height: 50px;
 
 }

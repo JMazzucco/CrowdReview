@@ -15,9 +15,9 @@
   <% if current_user %>
     <%= form_for([@article, @favorite]) do |f| %>
       <% if current_user.favorites.find_by(article: @article) %>
-        <%= f.submit 'Unfavorite', class: 'green' %>
+        <%= f.submit 'Unfavorite', class: 'btn btn-warning' %>
       <% else %>
-        <%= f.submit 'Favorite', class: 'yellow' %>
+        <%= f.submit 'Favorite', class: 'btn btn-success' %>
       <% end %>
     <% end %>
   <% end %>

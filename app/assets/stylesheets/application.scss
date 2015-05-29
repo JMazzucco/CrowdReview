@@ -22,7 +22,11 @@ html{
 body {
  // background-image: url("contemporary_china.png");
   // background: radial-gradient(ellipse at center,  #0869ad 0%, darken($color, 50%) 100%);
- background-color: #7FDBFF;
+ background-color: #3D4C53;
+ color:antiquewhite;
+// #7FDBFF
+
+ // #74BBD7
  // rgba(76, 171, 95, 0.44)
  // width:100%;
  // height:100%;
@@ -50,10 +54,15 @@ body {
   height: 60px;
 }
 
+img{
+   margin-top:-4px;
+}
+
 #logo {
   width:195px;
-  height:60px;
+  height:63px;
   opacity:0.7;
+
 }
 
 .signup {
@@ -66,7 +75,7 @@ body {
 }
 
 .avatar {
- border-radius: 135px;
+ border-radius: 171px;
 }
 
 .avatar2 {
@@ -75,5 +84,10 @@ body {
 }
 
 .userinfo{
+  padding-top:50px;
+}
+
+.link{
+  color:yellow;
 }
 

@@ -1,17 +1,21 @@
-<h1 class= "align">User Profile</h1>
-
-	<div><%= image_tag @user.avatar.url(:medium),:class => 'avatar' %></div>
-  <div class="userinfo">
-  <p>Username:<%= @user.username %></p>
-  <p>Email:<%= @user.email %></p>
+<h1 class= "align" style="text-decoration:underline">User Profile</h1>
+  <div class="container">
+    <div class="row">
+  	<%= image_tag @user.avatar.url(:medium),:class => 'avatar col-md-4' %>
+      <div class="userinfo col-md-8">
+      <p>Username:<%= @user.username %></p>
+      <p>Email:<%= @user.email %></p>
+      </div>
+    </div>
   </div>
-
 <% if current_user.id == @user.id %>
   <h3>Favorite Articles</h3>
-  <% @user.favorites.each do |favorite| %>
-  <p><%= link_to raw(favorite.article.title), article_path(favorite.article)%>
-  <%= link_to "Delete", user_favorite_path(@user, favorite),method: :delete%></p>
-  <% end %>
+  <div >
+    <% @user.favorites.each do |favorite| %>
+    <p><%= link_to raw(favorite.article.title), article_path(favorite.article),{ :class=>'link' }%>
+    <%= link_to "Delete", user_favorite_path(@user, favorite),method: :delete%></p>
+    <% end %>
+  </div>
 <% end %>
 
 	<h3>Your comments</h3>
