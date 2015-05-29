@@ -9,30 +9,43 @@
       <%= csrf_meta_tags %>
       <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
   </head>
+
   <body>
-
-  <div id="nav">
-    <div id="wrapper">
-        <a id="" href="/">
-         <%= image_tag("logo.png", :alt => "",:id => 'logo') %>
-        </a>
-      <div class="signup">
-      <% if current_user %>
-        Signed in as <%= link_to current_user.email, user_path(current_user)%>. <%= image_tag current_user.avatar.url(:thumb) %><%= link_to "Log out", user_session_path("current"), :method => :delete %>
-      <% else %>
-        <%= link_to "Register", new_user_path %> |
-        <%= link_to "Login", :login %>
-      <% end %>
+    <nav>
+      <div id="nav">
+        <div id="wrapper">
+            <a id="" href="/">
+             <%= image_tag("logo.png", :alt => "",:id => 'logo') %>
+            </a>
+          <div class="signup">
+          <% if current_user %>
+            <%= image_tag current_user.avatar.url(:thumb),:class => 'avatar2'%>  Signed in as <%= link_to current_user.email, user_path(current_user)%> | <%= link_to "Log out", user_session_path("current"), :method => :delete %>
+          <% else %>
+            <%= link_to "Register", new_user_path %> |
+            <%= link_to "Login", :login %>
+          <% end %>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div>
-    <p id="notice"><%= flash[:notice] %></p>
-    <p id="alert"><%= flash[:alert] %></p>
-  </div>
+    </nav>
 
-  <div class="align">
-  <%= yield %>
-  </div>
+    <section class="bgcolor">
+      <% if flash[:notice] %>
+        <div>
+          <p id="notice"><%= flash[:notice] %></p>
+          <p id="alert"><%= flash[:alert] %></p>
+        </div>
+      <% end %>
+
+      <!-- <div class="align"> -->
+       <%= yield %>
+<!--       </div> -->
+    </section>
+<!--
+    <script>
+      bodyHeight = $('body').height();
+      $('.bgcolor').css({height: bodyHeight + 50});
+    </script> -->
+
   </body>
 </html>

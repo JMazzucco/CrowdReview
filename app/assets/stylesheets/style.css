@@ -1,11 +1,7 @@
-body{
-  background: #fffff;
-  background-image: url("contemporary_china.png");
-}
-
 .search-bar {
-	background-color: rgba(1, 89, 189, 0.54);
-	height: 160px;
+	/*background-color: rgba(1, 89, 189, 0.54);*/
+/*  background-color: #39CCCC;*/
+	height: 200px;
  }
 
 .box{
@@ -84,12 +80,20 @@ transition: background .55s ease;
 }
 
 .results-even {
-	background-color: #e4e4e4;
+/*	background-color: #e4e4e4;*/
+  /*background-color: #B6A4CD;*/
+  background-color: #7EE7E7;
+  /*#A0DDDD*/
+ /* #7EDADA
+  #7EE7E7
+  #7EC3E7*/
 	min-height: 50px;
 }
 
 .results-odd {
-	background-color: #f6f6f6;
+	background-color: rgba(154, 166, 229, 0.67);
+  /*#C9AAD3*/
+  /*rgba(154, 166, 229, 0.67)*/
 	min-height: 50px;
 
 }

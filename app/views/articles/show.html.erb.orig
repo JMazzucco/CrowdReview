@@ -1,7 +1,13 @@
+<<<<<<< HEAD
+=======
 <div class="check">
 <div class="align">
   <h1><%= raw(@article.title) %></h1>
+>>>>>>> front_end
 
+<div class="search-bar">
+  <h1><%= raw(@article.title) %></h1>
+</div>
 
   <% if @article.authors %>
     <h4>Authors:</h4>
@@ -23,10 +29,18 @@
     <% end %>
   <% end %>
 
+<<<<<<< HEAD
 <% if @article.abstract %>
   <h4>Abstract:</h4>
   <p class="abstract"><%= @article.abstract %></p>
 <% end %>
+=======
+
+  <% if @article.abstract %>
+    <h4>Abstract:</h4>
+    <p><%= @article.abstract %></p>
+  <% end %>
+>>>>>>> front_end
 
   <%= link_to "Full Text",  "http://journals.plos.org/plosone/article?id=#{@article.plos_id}", target: "_blank"%>
 
