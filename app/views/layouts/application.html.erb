@@ -19,7 +19,7 @@
             </a>
           <div class="signup">
           <% if current_user %>
-            Signed in as <%= link_to current_user.email, user_path(current_user)%>. <%= image_tag current_user.avatar.url(:thumb) %><%= link_to "Log out", user_session_path("current"), :method => :delete %>
+            <%= image_tag current_user.avatar.url(:thumb),:class => 'avatar2'%>  Signed in as <%= link_to current_user.email, user_path(current_user)%> | <%= link_to "Log out", user_session_path("current"), :method => :delete %>
           <% else %>
             <%= link_to "Register", new_user_path %> |
             <%= link_to "Login", :login %>
@@ -37,15 +37,15 @@
         </div>
       <% end %>
 
-      <div class="align">
+      <!-- <div class="align"> -->
        <%= yield %>
-      </div>
+<!--       </div> -->
     </section>
-
+<!--
     <script>
       bodyHeight = $('body').height();
       $('.bgcolor').css({height: bodyHeight + 50});
-    </script>
+    </script> -->
 
   </body>
 </html>

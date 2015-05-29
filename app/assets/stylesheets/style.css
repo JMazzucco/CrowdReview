@@ -1,7 +1,7 @@
-
 .search-bar {
 	/*background-color: rgba(1, 89, 189, 0.54);*/
-	height: 160px;
+  background-color: #39CCCC;
+	height: 200px;
  }
 
 .box{
@@ -70,6 +70,9 @@ transition: background .55s ease;
     background: #ffffff;
 }
 
+.cheeko{
+  background-color: #7FDBFF;
+}
 .results-container{
 	margin: 0.5% 2%;
 	background-color: rgba(255, 255, 255, 0.55);

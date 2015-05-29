@@ -1,9 +1,10 @@
-<h1>User Profile</h1>
+<h1 class= "align">User Profile</h1>
 
-	<div><%= image_tag @user.avatar.url(:medium) %></div>
-  <p>User ID:<%= @user.id %></p>
+	<div><%= image_tag @user.avatar.url(:medium),:class => 'avatar' %></div>
+  <div class="userinfo">
   <p>Username:<%= @user.username %></p>
   <p>Email:<%= @user.email %></p>
+  </div>
 
 <% if current_user.id == @user.id %>
   <h3>Favorite Articles</h3>
