@@ -1,26 +1,32 @@
-<div class="panel panel-primary">
+
+<div class="panel-container">
+  <% from_reply_form ||= nil %>
+  <div class="links-container">
+  <% unless from_reply_form %>
+      <p class="comment-links" ><% if current_user && comment.user_id == current_user.id %>
+         <%= link_to 'edit', edit_article_comment_path(@article, comment.id) %>
+      |<% end %>
+    <% end %>
+    <%= link_to 'reply', article_new_comment_path(@article, comment.id) %>
+    </p>
+  </div>
+
+  <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title" id="panel-title"><%= comment.title %>
-         <% if comment.created_at == comment.updated_at %>
-            <p class="text-muted">Added by <strong><%= link_to User.find_by(id: comment.user_id).username, user_path(comment.user_id)%>.</strong> on
-              <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
-            <% else %>
-              <p class="text-muted">Edited by <strong><%= link_to User.find_by(id: comment.user_id).username, user_path(comment.user_id)%>.</strong> on
-                <%= l(comment.updated_at, format: '%B, %d %Y %H:%M:%S') %></p>
-            <% end %>
+
       </div>
       <div class="panel-body">
         <p><%= comment.body %></p>
       </div>
     </div>
 
-
-
-
-  <%= pluralize(comment.votes.count, "vote") %>
-
-	<%= button_to '+1', article_comment_upvote_path(comment.article_id, comment.id), method: :post %>
-
+  <div class="vote-button">
+  	<%= button_to '+1', article_comment_upvote_path(comment.article_id, comment.id), method: :post %>
+  </div>
+    <div class="total-votes">
+    <%= pluralize(comment.votes.count, "vote") %>
+  </div>
 
   <% if current_user && current_user.admin %>
     <% if comment.flagged %>
@@ -36,15 +42,15 @@
     <% end %>
   <% end %>
 
-	<% from_reply_form ||= nil %>
-	<% unless from_reply_form %>
-	    <% if current_user && comment.user_id == current_user.id %>
-	 			 <p><%= link_to 'edit', edit_article_comment_path(@article, comment.id) %></p>
-	  	<% end %>
-	  <% end %>
-	  <p><%= link_to 'reply', article_new_comment_path(@article, comment.id) %></p>
-
-
-
+  <div class="links-container">
+    <span class="timestamp">
+     <% if comment.created_at == comment.updated_at %>
+            Added on <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %>
+     <% else %>
+             <em>Edited on <%= l(comment.updated_at, format: '%B, %d %Y %H:%M:%S') %></em>
+     <% end %>
+     </span>
+  </div>
+</div>
 
 
