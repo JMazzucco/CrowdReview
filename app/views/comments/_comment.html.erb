@@ -1,7 +1,12 @@
 
+
+
 <div class="panel-container">
+
   <% from_reply_form ||= nil %>
   <div class="links-container">
+
+
   <% unless from_reply_form %>
       <p class="comment-links" ><% if current_user && comment.user_id == current_user.id %>
          <%= link_to 'edit', edit_article_comment_path(@article, comment.id) %>
