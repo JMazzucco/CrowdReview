@@ -79,24 +79,6 @@
 	border-radius: 5px;
 }
 
-.results-even {
-/*	background-color: #e4e4e4;*/
-  /*background-color: #B6A4CD;*/
-  background-color: #7EE7E7;
-  /*#A0DDDD*/
- /* #7EDADA
-  #7EE7E7
-  #7EC3E7*/
-	min-height: 50px;
-}
-
-.results-odd {
-	background-color: rgba(154, 166, 229, 0.67);
-  /*#C9AAD3*/
-  /*rgba(154, 166, 229, 0.67)*/
-	min-height: 50px;
-}
-
 .results-text {
 	text-align: left;
 	padding: 1em;

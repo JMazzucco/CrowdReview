@@ -11,26 +11,16 @@
 </div>
 
 <div class="results-count">
+
+	<% if @articles %>
 	<p><%= @articles.count %> results</p>
 </div>
-	<% @articles.each do |article| %>
-	    <% if article.id % 2 == 0 %>
-					<div class="results-container">
+		<% @articles.each do |article| %>
+		   	<div class="results-container">
 					<%= link_to "/articles/#{article.id}" do %>
-					<div class="results-even">
-						<p class="results-text"><%= raw(article.title) %></p>
-					</div>
-					</div>
+					<!-- <div class="results-odd"> -->
+					<p class="results-text"><%= raw(article.title) %></p>
 					<% end %>
-			<% else %>
-	    	<div class="results-container">
-					<%= link_to "/articles/#{article.id}" do %>
-					<div class="results-odd">
-						<p class="results-text"><%= raw(article.title) %></p>
-					</div>
-					</div>
-						<% end %>
-	    		<% end %>
-	    	</div>
+				</div>
+		<% end %>
 	<% end %>
-</div>
