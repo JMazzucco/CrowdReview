@@ -5,17 +5,20 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:search]
-        @articles = Article.where("LOWER(title) ILIKE LOWER(?)", "%#{params[:search]}%")
-
+      @articles = dbsearch( "%#{params[:search]}%")
         #if less than 10 articles return from the db, search for articles in PLOS and add them to the db
         if @articles.count <= 10
           plos = PlosApi.new
           plos.get_articles(params[:search])
-          @articles = Article.where("LOWER(title) ILIKE LOWER(?)", "%#{params[:search]}%")
+          @articles = dbsearch( "%#{params[:search]}%")
         end
     else
       @articles = Article.all
     end
+  end
+
+  def dbsearch(search)
+    Article.where('title LIKE :search OR abstract LIKE :search', search: "%#{search}%")
   end
 
   def show
