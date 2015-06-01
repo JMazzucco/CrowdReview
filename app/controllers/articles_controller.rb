@@ -1,12 +1,24 @@
+require 'plos_api'
+
 class ArticlesController < ApplicationController
   skip_before_filter :require_login
 
   def index
-    @articles = if params[:search]
-      Article.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%")
+    if params[:search]
+      @articles = dbsearch( "%#{params[:search]}%")
+        #if less than 10 articles return from the db, search for articles in PLOS and add them to the db
+        if @articles.count <= 10
+          plos = PlosApi.new
+          plos.get_articles(params[:search])
+          @articles = dbsearch( "%#{params[:search]}%")
+        end
     else
-      Article.all
+      @articles = Article.all
     end
+  end
+
+  def dbsearch(search)
+    Article.where('title LIKE :search OR abstract LIKE :search', search: "%#{search}%")
   end
 
   def show
@@ -17,12 +29,6 @@ class ArticlesController < ApplicationController
       @comments = @article.comments.where.not(flagged: true).hash_tree
     end
       @favorite = @article.favorites.build
-  end
-
-  def create
-  end
-
-  def new
   end
 
 end
