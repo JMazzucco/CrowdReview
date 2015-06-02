@@ -44,12 +44,12 @@
     <% if comment.flagged %>
         <%= form_for([@article, comment]) do |f| %>
         <%= f.hidden_field :flagged, value: false %>
-        <%= f.submit 'Flag comment' %>
+        <%= f.submit 'Flagged' %>
         <% end %>
     <% else %>
       <%= form_for([@article, comment]) do |f| %>
       <%= f.hidden_field :flagged, value: true %>
-      <%= f.submit 'Flagged' %>
+      <%= f.submit 'Flag Comment' %>
       <% end %>
     <% end %>
   <% end %>
