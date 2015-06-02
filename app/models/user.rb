@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
   has_one :vote
 
   mount_uploader :avatar, AvatarUploader
+  serialize :keywords,Array
 end
