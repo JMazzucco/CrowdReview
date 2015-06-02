@@ -29,7 +29,6 @@ class CommentsController < ApplicationController
 
 	def update
 		@comment = Comment.find(params[:id])
-
 		if @comment.update_attributes(comment_params)
       redirect_to article_path(@comment.article_id)
     else
@@ -38,20 +37,21 @@ class CommentsController < ApplicationController
 	end
 
 	def upvote
-	  @comment = Comment.find(params[:comment_id])
-	  @last_updated = @comment.updated_at
-	  @new_vote = @comment.votes += 1
-	  @comment.update_attribute(:votes, @new_vote)
+		@comment = Comment.find(params[:comment_id])
+		unless @comment.votes.where(user: current_user).exists?
 
-	  #return updated_at to its previous value
-	 	@comment.update_attribute(:updated_at,  @last_updated)
-	  redirect_to article_path(params[:article_id])
+	   @comment.votes.create(user: current_user)
+	  else
+	 	 flash[:notice] = "You can only vote once on another persons comment"
+    end
+
+    redirect_to article_path(params[:article_id])
 	end
 
 private
 
   def comment_params
-    params.require(:comment).permit(:title, :body, :article_id, :user_id)
+    params.require(:comment).permit(:title, :body, :article_id, :user_id, :flagged)
   end
 
   def load_article

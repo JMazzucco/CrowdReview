@@ -1,0 +1,59 @@
+<<<<<<< HEAD
+=======
+<div class="check">
+<div class="align">
+  <h1><%= raw(@article.title) %></h1>
+>>>>>>> front_end
+
+<div class="search-bar">
+  <h1><%= raw(@article.title) %></h1>
+</div>
+
+  <% if @article.authors %>
+    <h4>Authors:</h4>
+    <p><%= @article.authors %></p>
+  <% end %>
+
+  <% if @article.publication_date %>
+    <h4>Publication Date:</h4>
+    <p><%= @article.publication_date.to_formatted_s(:long_ordinal) %></p>
+  <% end %>
+
+  <% if current_user %>
+    <%= form_for([@article, @favorite]) do |f| %>
+      <% if current_user.favorites.find_by(article: @article) %>
+        <%= f.submit 'Unfavorite', class: 'btn btn-warning' %>
+      <% else %>
+        <%= f.submit 'Favorite', class: 'btn btn-success' %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+<<<<<<< HEAD
+<% if @article.abstract %>
+  <h4>Abstract:</h4>
+  <p class="abstract"><%= @article.abstract %></p>
+<% end %>
+=======
+
+  <% if @article.abstract %>
+    <h4>Abstract:</h4>
+    <p><%= @article.abstract %></p>
+  <% end %>
+>>>>>>> front_end
+
+  <%= link_to "Full Text",  "http://journals.plos.org/plosone/article?id=#{@article.plos_id}", target: "_blank"%>
+
+  <p><%= link_to "Back to all articles", articles_path %></p>
+
+   <div class="container">
+      <h1>Join the discussion</h1>
+      <p>Click the button below to start a new thread:</p>
+      <p>
+        <%= link_to 'Add new topic', article_new_comment_path(@article), class: 'btn btn-primary btn-lg' %>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+<%= comments_tree_for @comments %>

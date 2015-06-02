@@ -7,7 +7,10 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   has_many :comments
+  has_many :favorites
   has_many :articles, through: :comments
+  has_many :favorite_articles, through: :favorites, source: :article
+  has_one :vote
 
   mount_uploader :avatar, AvatarUploader
 end

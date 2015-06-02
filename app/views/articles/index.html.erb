@@ -1,18 +1,30 @@
-<h1>Articles#index</h1>
-
 <h1><small><%= page_entries_info @articles %></small></h1>
 
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="search-bar">
+	<div class="box">
+	  <div class="container-1">
+		<span class="icon"><i class="fa fa-search"></i></span>
+		<%= form_tag "/articles?search", :method => 'get'  do  %>
+		        <%= text_field_tag :search, params[:search], placeholder: "" %>
+		<% end %>
+	  </div>
+	</div>
+</div>
 
-<%= form_tag "/articles?search", :method => 'get'  do  %>
-    <p>
-        <%= text_field_tag :search, params[:search]  %>
-        <%= submit_tag "Search", :name => nil %>
-    </p>
-<% end %>
+<div class="results-count">
 
+	<% if @articles %>
+	<p><%= @articles.count %> results</p>
+</div>
+		<% @articles.each do |article| %>
+		   	<div class="results-container">
+					<%= link_to "/articles/#{article.id}" do %>
+					<!-- <div class="results-odd"> -->
+					<p class="results-text"><%= raw(article.title) %></p>
+					<% end %>
+				</div>
+		<% end %>
+	<% end %>
 
-<% @articles.each do |article| %>
-    <h2><%= link_to raw(article.title), "/articles/#{article.id}" %></h2>
-<% end %>
-
-<%= paginate @articles %>
+ <%= paginate @articles %>

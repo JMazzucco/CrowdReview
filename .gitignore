@@ -14,3 +14,11 @@ public/uploads/*
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore application configuration
+/config/application.yml
+
+/app/assets/images/.DS_Store
+
+# finding code symbols in Emacs
+TAGS
