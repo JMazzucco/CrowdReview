@@ -31,4 +31,6 @@ class ArticlesController < ApplicationController
       @favorite = @article.favorites.build
   end
 
+
+
 end
