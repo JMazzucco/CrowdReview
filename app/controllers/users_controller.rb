@@ -44,10 +44,21 @@ class UsersController < ApplicationController
   end
 
   def feed
+    @user = User.find(params[:user_id])
+  end
+
+  def update
+    @user = User.find(current_user.id)
+    appended_array = @user.keywords << keyword_param['keywords']
+    @user.update_attribute(:keywords, appended_array)
   end
 
   private
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :username, :avatar)
+  end
+
+  def keyword_param
+    params.require(:user).permit(:keywords)
   end
 end

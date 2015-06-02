@@ -1,1 +1,16 @@
-feed.html.erb
+<h1>My Feed</h1>
+
+<h4>Add new keyword</h4>
+
+<%= form_for @user do |f| %>
+	<div class="field">
+		<%= f.text_field :keywords %>
+	</div>
+	  <%= f.submit %>
+<% end %>
+
+
+<% @user.keywords.each do |keyword| %>
+	<p><%= keyword %></p>
+<% end %>
+
