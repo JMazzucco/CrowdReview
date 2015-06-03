@@ -40,14 +40,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if params[:index]
-      @user.keywords.delete_at(params[:index].to_i)
-      @user.update_attribute(:keywords, @user.keywords)
-    # binding.pry
-    #   redirect_to user_feed_path(@user.id)
-    # else
-    #   @user.destroy
-    #   redirect_to users_path
-     end
+      if @user.keywords.length > 1
+        @user.keywords.delete_at(params[:index].to_i)
+        @user.update_attribute(:keywords, @user.keywords)
+      else
+        @user.update_attribute(:keywords, [])
+      end
+      redirect_to user_feed_path(params[:id])
+    else
+      @user.destroy
+      redirect_to users_path
+    end
   end
 
   def feed
@@ -65,10 +68,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :username, :avatar)
   end
-
-  # def keyword_param
-  #   params.require(:user).permit(:keywords)
-  # end
 
   def keyword_param
     params.permit(:keyword)
