@@ -29,9 +29,8 @@ class PlosApi
     end
   end
 
-  def get_articles(keyword)
-
-    results = @client.search(keyword, 1, 10)
+  def get_articles(keyword, start=0, rows=10)
+    results = @client.search(keyword, start, rows)
 
     results.each do |r|
       unless Article.find_by(plos_id: r.id)
