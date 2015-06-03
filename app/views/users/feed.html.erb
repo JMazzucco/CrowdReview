@@ -2,15 +2,29 @@
 
 <h4>Add new keyword</h4>
 
-<%= form_for @user do |f| %>
+<%#= form_for @user do |f| %>
 	<div class="field">
-		<%= f.text_field :keywords %>
+		<%#= f.text_field :keywords %>
 	</div>
-	  <%= f.submit %>
-<% end %>
+	  <%#= f.submit %>
+<%# end %>
 
+<%= form_tag user_path(current_user.id), :method => :patch do |f| %>
+	<%= label_tag :keyword %>
+	<%= text_field_tag :keyword %>
+  <%= submit_tag "submit"%>
+<% end %>
 
 <% @user.keywords.each do |keyword| %>
+	<!--
+	-display keyword
+	-add a 'delete' link
+	-the delete link should route to user#delete where the keyword.. or the array index is passed as a param.
+	-in user#delete, the keyword is removed from the array, and the user is redirected back to the My feed page
+	 -->
+<% @keyword_index = @user.keywords.index(keyword) %>
+
+<%= link_to "delete", user_path(index: @keyword_index, id: current_user.id), :method => :delete %>
+
 	<p><%= keyword %></p>
 <% end %>
-

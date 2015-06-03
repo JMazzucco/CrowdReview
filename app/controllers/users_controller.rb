@@ -29,7 +29,6 @@ class UsersController < ApplicationController
     @total = Comment.where(user_id: params[:id]).count
     @favorite = @user.favorites
 
-
     # unless (@user.id == current_user.id) || current_user.admin?
     #   flash[:notice] = "You don't have access to this profile!"
     #   redirect_to root_path
@@ -39,8 +38,16 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-    redirect_to users_path
+
+    if params[:index]
+      @user.keywords.delete_at(params[:index].to_i)
+      @user.update_attribute(:keywords, @user.keywords)
+    # binding.pry
+    #   redirect_to user_feed_path(@user.id)
+    # else
+    #   @user.destroy
+    #   redirect_to users_path
+     end
   end
 
   def feed
@@ -49,8 +56,9 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(current_user.id)
-    appended_array = @user.keywords << keyword_param['keywords']
+    appended_array = @user.keywords << keyword_param['keyword']
     @user.update_attribute(:keywords, appended_array)
+    redirect_to user_feed_path(@user)
   end
 
   private
@@ -58,7 +66,11 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :password, :password_confirmation, :username, :avatar)
   end
 
+  # def keyword_param
+  #   params.require(:user).permit(:keywords)
+  # end
+
   def keyword_param
-    params.require(:user).permit(:keywords)
+    params.permit(:keyword)
   end
 end
