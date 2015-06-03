@@ -55,6 +55,19 @@ class UsersController < ApplicationController
 
   def feed
     @user = User.find(params[:user_id])
+    @total_articles = []
+
+    @user.keywords.length.times do |index|
+      @articles = Article.where('title LIKE :keyword OR abstract LIKE :keyword', keyword: "%#{@user.keywords[index]}%")
+      @articles.each do |article|
+        @total_articles << article
+      end
+    end
+    # @article_feed = []
+    # @user.keywords.each do |keyword|
+    #   if @user.keywords.length > 0
+    #     @article_feed << Article.where('title LIKE :keyword OR abstract LIKE :keyword', keyword: "%#{@user.keywords[0]}%")
+    #   end
   end
 
   def update

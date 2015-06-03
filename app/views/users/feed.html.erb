@@ -28,3 +28,10 @@
 
 	<p><%= keyword %></p>
 <% end %>
+
+<hr/>
+
+<% @total_articles.each do |article| %>
+
+	<p><%= article.title %></p>
+<% end %>
