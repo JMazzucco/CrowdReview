@@ -3,7 +3,12 @@
   <% @metrics.each do |article| %>
     <li>
     <%= article['title'] %>
-
+      <ul>
+      <li>
+      <%= article['cohorts'] %>
+      <%#= article['viewed'] %>
+      </li>
+      </ul>
     </li>
   <% end %>
 </ul>
