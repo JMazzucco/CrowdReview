@@ -59,44 +59,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
     plos = PlosApi.new
 
-    @total_articles = []
+    @articles = []
 
     @user.keywords.length.times do |index|
       plos.get_articles(@user.keywords[index])
-      @articles = Article.where('title LIKE :keyword OR abstract LIKE :keyword', keyword: "%#{@user.keywords[index]}%")
-      @articles.each do |article|
-        @total_articles << article
+      @results = Article.where('title LIKE :keyword OR abstract LIKE :keyword', keyword: "%#{@user.keywords[index]}%")
+      @results.each do |article|
+        @articles << article
       end
     end
-
-
   end
-
-  #   if params[:search]
-  #     @articles = dbsearch( "%#{params[:search]}%")
-  #       #if less than 10 articles return from the db, search for articles in PLOS and add them to the db
-  #       if @articles.count <= 10
-  #         plos = PlosApi.new
-  #         plos.get_articles(params[:search])
-  #         @articles = dbsearch( "%#{params[:search]}%")
-  #       end
-  #   else
-  #     @articles = Article.all
-  #   end
-  # end
-
-  # def dbsearch(search)
-  #   Article.where('title LIKE :search OR abstract LIKE :search', search: "%#{search}%")
-  # end
-
-
-
-
-
-
-
-
-
 
 
   def update

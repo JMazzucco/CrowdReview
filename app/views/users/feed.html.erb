@@ -2,15 +2,7 @@
 
 <h4>Add new keyword</h4>
 
-<%#= form_for @user do |f| %>
-	<div class="field">
-		<%#= f.text_field :keywords %>
-	</div>
-	  <%#= f.submit %>
-<%# end %>
-
 <%= form_tag user_path(current_user.id), :method => :patch do |f| %>
-	<%= label_tag :keyword %>
 	<%= text_field_tag :keyword %>
   <%= submit_tag "submit"%>
 <% end %>
@@ -23,12 +15,7 @@
 
 <hr/>
 
-<% @total_articles.each do |article| %>
-	<div class="results-container">
-		<%= link_to "/articles/#{article.id}" do %>
-		<p class="results-text"><%= raw(article.title) %></p>
-		<% end %>
-	</div>
-<% end %>
-
+<div id="article">
+  <%= render @articles %>
+</div>
 

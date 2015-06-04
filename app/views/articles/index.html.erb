@@ -11,7 +11,9 @@
 </div>
 
 <!-- temp link for testing the user feed view -->
-<h4><%=link_to "My Feed (temp)",user_feed_path(current_user)%></h4>
+<% if current_user %>
+	<h4><%=link_to "My Feed (temp)",user_feed_path(current_user)%></h4>
+<% end %>
 
 <div class="results-count">
 
