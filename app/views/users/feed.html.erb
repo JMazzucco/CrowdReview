@@ -16,22 +16,19 @@
 <% end %>
 
 <% @user.keywords.each do |keyword| %>
-	<!--
-	-display keyword
-	-add a 'delete' link
-	-the delete link should route to user#delete where the keyword.. or the array index is passed as a param.
-	-in user#delete, the keyword is removed from the array, and the user is redirected back to the My feed page
-	 -->
-<% @keyword_index = @user.keywords.index(keyword) %>
-
-<%= link_to "delete", user_path(index: @keyword_index, id: current_user.id), :method => :delete %>
-
-	<p><%= keyword %></p>
+	<% @keyword_index = @user.keywords.index(keyword) %>
+	<h3><%= keyword %></h3>
+	<%= link_to "delete", user_path(index: @keyword_index, id: current_user.id), :method => :delete %>
 <% end %>
 
 <hr/>
 
 <% @total_articles.each do |article| %>
-
-	<p><%= article.title %></p>
+	<div class="results-container">
+		<%= link_to "/articles/#{article.id}" do %>
+		<p class="results-text"><%= raw(article.title) %></p>
+		<% end %>
+	</div>
 <% end %>
+
+

@@ -1,3 +1,5 @@
+require 'plos_api'
+
 class UsersController < ApplicationController
 
   skip_before_filter :require_login, only: [:new, :create]
@@ -55,20 +57,47 @@ class UsersController < ApplicationController
 
   def feed
     @user = User.find(params[:user_id])
+    plos = PlosApi.new
+
     @total_articles = []
 
     @user.keywords.length.times do |index|
+      plos.get_articles(@user.keywords[index])
       @articles = Article.where('title LIKE :keyword OR abstract LIKE :keyword', keyword: "%#{@user.keywords[index]}%")
       @articles.each do |article|
         @total_articles << article
       end
     end
-    # @article_feed = []
-    # @user.keywords.each do |keyword|
-    #   if @user.keywords.length > 0
-    #     @article_feed << Article.where('title LIKE :keyword OR abstract LIKE :keyword', keyword: "%#{@user.keywords[0]}%")
-    #   end
+
+
   end
+
+  #   if params[:search]
+  #     @articles = dbsearch( "%#{params[:search]}%")
+  #       #if less than 10 articles return from the db, search for articles in PLOS and add them to the db
+  #       if @articles.count <= 10
+  #         plos = PlosApi.new
+  #         plos.get_articles(params[:search])
+  #         @articles = dbsearch( "%#{params[:search]}%")
+  #       end
+  #   else
+  #     @articles = Article.all
+  #   end
+  # end
+
+  # def dbsearch(search)
+  #   Article.where('title LIKE :search OR abstract LIKE :search', search: "%#{search}%")
+  # end
+
+
+
+
+
+
+
+
+
+
 
   def update
     @user = User.find(current_user.id)
