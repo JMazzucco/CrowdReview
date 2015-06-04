@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527201617) do
+ActiveRecord::Schema.define(version: 20150604194012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20150527201617) do
     t.datetime "publication_date"
     t.string   "plos_id"
     t.string   "authors"
+    t.text     "content"
+    t.text     "fundingstatement"
   end
 
   create_table "comment_hierarchies", id: false, force: :cascade do |t|

@@ -2,6 +2,7 @@ class PlosApi
 
   require 'plos'
 
+
   def initialize
     @client = PLOS::Client.new(ENV["API_KEY"])
   end
@@ -34,10 +35,15 @@ class PlosApi
 
     results.each do |r|
       unless Article.find_by(plos_id: r.id)
+
         if ( r.title && has_more_than_ten_words( r.abstract[0] ) && r.authors && r.id && r.published_at )
+          content = get_content(r)
+          fs = get_funding_statement(content)
           Article.create(title: r.title, abstract: r.abstract[0],
                        publication_date: r.published_at,
                        authors: r.authors.to_sentence,
+                       fundingstatement: fs,
+                       content: content,
                        plos_id: r.id )
         end
       end
@@ -45,6 +51,23 @@ class PlosApi
   end
 
   private
+
+  def get_content(r)
+    content = nil
+    if r then
+      content = Nokogiri::XML(PLOS::Article.content(r.id))
+    end
+  end
+
+  def get_funding_statement(content)
+    text = nil
+    search_results = content.xpath("//funding-group/funding-statement")
+    if search_results && search_results.length > 0 then
+      text = search_results[0].content
+    end
+    text
+  end
+
   def has_more_than_ten_words(text)
     text.split.count > 10
   end

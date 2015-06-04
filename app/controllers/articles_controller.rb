@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
   end
 
   def dbsearch(search)
-    Article.where('title LIKE :search OR abstract LIKE :search', search: "%#{search}%")
+    Article.where('title LIKE :search OR abstract LIKE :search OR content LIKE :search', search: "%#{search}%")
   end
 
   def show
