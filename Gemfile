@@ -45,6 +45,8 @@ gem 'bootstrap-sass', '~> 3.3.4'
 
 gem 'carrierwave'
 gem 'mini_magick'
+
+gem 'kaminari'
 gem 'newrelic_rpm'
 gem 'figaro'
 

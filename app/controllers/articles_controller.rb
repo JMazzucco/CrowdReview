@@ -15,6 +15,9 @@ class ArticlesController < ApplicationController
     else
       @articles = Article.all
     end
+
+    @articles = @articles.order('articles.publication_date DESC').page(params[:page])
+
   end
 
   def dbsearch(search)
