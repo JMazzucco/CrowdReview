@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :metrics do
     collection do
       get "sample_data"
+      get "cohorts"
     end
   end
 

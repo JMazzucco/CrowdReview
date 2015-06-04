@@ -22,6 +22,11 @@ class MetricsController < ApplicationController
     render json: Metric.sample_data
   end
 
+  def cohorts
+    data = Metric.sample_data.first["cohorts"].map { |k,v| {age: k, population: v} }
+    render json: data
+  end
+
   def show
     @metric = Metric.find(params[:id])
   end
