@@ -1,10 +1,6 @@
-
-
 <div class="search-bar">
-
-<h4>My Feed</h4>
-
-	  <div class="keyword-form">
+	<h4>My Feed</h4>
+  <div class="keyword-form">
 		<%= form_tag user_path(current_user.id), :method => :patch, id: 'search-form'  do |f| %>
 		<%= text_field_tag :keyword %>
 		<% end %>
@@ -12,12 +8,16 @@
 	</div>
 </div>
 
-	<div id="keywords">
-		<%= render partial: "keyword" %>
-	</div>
+<div id="keywords">
+	<%= render partial: "keyword" %>
+</div>
 
-	<div id="articles">
-	  <%= render @articles %>
-	</div>
+<hr/>
+<h5><%= @articles.count %> articles</h5>
+<hr/>
+
+<div id="articles">
+	<%= render @articles %>
+</div>
 
 
