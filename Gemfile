@@ -37,11 +37,9 @@ gem 'plos'
 
 gem 'sorcery'
 
-gem 'favorite_things'
-
 gem 'closure_tree'
 
-gem 'bootstrap-sass', '~> 3.3.4'
+# gem 'bootstrap-sass', '~> 3.3.4'
 
 gem 'carrierwave'
 gem 'mini_magick'
@@ -50,14 +48,17 @@ gem 'kaminari'
 gem 'newrelic_rpm'
 gem 'figaro'
 
+gem 'httparty'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'letter_opener'
   gem 'faker'
-	gem 'better_errors', '~> 2.1.1'
+	gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'pry-rails'
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
