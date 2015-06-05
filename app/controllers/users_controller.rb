@@ -77,9 +77,17 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(current_user.id)
-    appended_array = @user.keywords << keyword_param['keyword']
-    @user.update_attribute(:keywords, appended_array)
-    redirect_to user_feed_path(@user)
+    keyword = keyword_param['keyword'].downcase.strip
+
+    if @user.keywords.include?(keyword)
+      puts "already included"
+      flash[:notice] = 'Keyword has already been added'
+    else
+      appended_array = @user.keywords << keyword
+      @user.update_attribute(:keywords, appended_array)
+    end
+
+  redirect_to user_feed_path(@user)
   end
 
   private

@@ -1,3 +1,4 @@
 	<%= link_to "/articles/#{article.id}" do %>
-	<p class="results-text"><%= raw(article.title) %></p>
+	<h4 class="title"><%= truncate(raw(article.title), length: 100) %></h4>
+	<h6 class="date-authors"><%= truncate(raw(article.authors), length: 100) %> | <%= raw(article.publication_date.strftime("Published on %B %d, %Y")) %></h6>
 	<% end %>
