@@ -1,0 +1,10 @@
+<% if @keywords.count > 0 && @articles.count > 0%>
+		<h5><%= @articles.count %> articles</h5>
+<% else %>
+		<h5>No articles found</h5>
+<% end %>
+
+	<hr/>
+
+<%= render @articles %>
+

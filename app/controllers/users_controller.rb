@@ -67,12 +67,16 @@ class UsersController < ApplicationController
       @results.each do |article|
         @articles << article
       end
-
     end
-     # binding.pry
+    # binding.pry
     # if request.xhr?
     #  render @articles
     # end
+
+    respond_to do |f|
+      f.html
+      f.js
+    end
   end
 
   def update

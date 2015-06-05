@@ -1,7 +1,7 @@
 <div class="search-bar">
 	<h4>My Feed</h4>
   <div class="keyword-form">
-		<%= form_tag user_path(current_user.id), :method => :patch, id: 'search-form'  do |f| %>
+		<%= form_tag user_path(current_user.id), remote: true, method: :patch, id: 'search-form'  do |f| %>
 		<%= text_field_tag :keyword %>
 		<% end %>
 	  </div>
@@ -12,12 +12,15 @@
 	<%= render partial: "keyword" %>
 </div>
 
-<hr/>
-<h5><%= @articles.count %> articles</h5>
+
+
 <hr/>
 
+
 <div id="articles">
-	<%= render @articles %>
+	<%= render partial: "articles" %>
+	<hr/>
+	<h6>All articles are provided by <a href="https://www.plos.org/"><strong>PLOS</strong></a></em></h6>
 </div>
 
 
