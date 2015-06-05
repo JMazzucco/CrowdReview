@@ -38,15 +38,16 @@
 
   <p><%= link_to "Back to all articles", articles_path %></p>
 
-   <div class="container">
-      <h1>Join the discussion</h1>
-      <p>Click the button below to start a new thread:</p>
-      <p>
-        <%= link_to 'Add new topic', article_new_comment_path(@article), class: 'btn btn-primary btn-lg' %>
-      </p>
-    </div>
   </div>
 
 </div>
 </div>
 <%= comments_tree_for @comments %>
+
+<div class="container">
+      <h1>Join the discussion</h1>
+      <p>Click the button below to start a new thread:</p>
+      <p>
+        <%= link_to 'Add new topic', article_new_comment_path(@article), id: "new_comment", remote: true, class: 'btn btn-primary btn-lg' %>
+      </p>
+</div>

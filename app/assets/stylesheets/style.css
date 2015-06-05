@@ -212,3 +212,24 @@ a:active {
 #full-text a:hover {
   color:red;
 }
+
+.white, .white a {
+  color: #fff;
+}
+
+.label {
+  font-size: 1.2em;
+}
+
+#keywords {
+  padding: 1%;
+}
+
+.keyword {
+  display: inline-block;
+  padding: 0.25%;
+}
+
+.article-details {
+
+}

@@ -212,7 +212,6 @@ DEPENDENCIES
   byebug
   carrierwave
   closure_tree
-  coffee-rails (~> 4.1.0)
   faker
   figaro
   httparty

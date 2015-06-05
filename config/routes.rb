@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
+    get '/feed', to: 'users#feed'
     resources :favorites, only: [:create, :destroy]
   end
   resources :user_sessions

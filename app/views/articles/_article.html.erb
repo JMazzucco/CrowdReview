@@ -1,0 +1,6 @@
+	<%= link_to "/articles/#{article.id}" do %>
+	<h4 class="title"><%= truncate(raw(article.title), length: 100) %></h4>
+
+	<span class="article-details"><%= truncate(raw(article.authors), omission: " et al.",separator: ",", length: 60) %> | <%= raw(article.publication_date.strftime("Published on %B %d, %Y")) %>
+	</span>
+	<% end %>
