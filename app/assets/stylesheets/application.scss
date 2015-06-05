@@ -155,7 +155,7 @@ img{
 
 #percentage {
   position: absolute;
-  clip: rect(0px, 50px, 125px, 0px);
+  clip: rect(0px, 50px, 130px, 0px);
 }
 
 #labels ul, #percentage ul {
@@ -563,3 +563,15 @@ img{
 #q1_2010:target #btn_panel li:nth-child(5) a{color:#c33702; -moz-transform: scale(1.1); -webkit-transform: scale(1.1); -o-transform: scale(1.1); opacity:1;}
 /* button panel end */
 // Here is where the codepen pie chart code end
+// Here is where the d3.js force graph code begins
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
+// Here is where the d3.js force graph code ends
+
