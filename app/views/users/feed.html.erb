@@ -7,16 +7,12 @@
   <%= submit_tag "submit"%>
 <% end %>
 
-<% @user.keywords.each do |keyword| %>
-	<% @keyword_index = @user.keywords.index(keyword) %>
-	<h3><%= keyword %></h3>
-	<%= link_to "delete", user_path(index: @keyword_index, id: current_user.id), :method => :delete %>
-<% end %>
-
+<div id="keywords">
+	<%= render partial: "keyword" %>
+</div>
 
 <div id="articles">
   <%= render @articles %>
 </div>
-
 
 

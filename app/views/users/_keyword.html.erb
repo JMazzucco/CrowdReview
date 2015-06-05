@@ -1,0 +1,5 @@
+	<% @keywords.each do |keyword| %>
+		<% @keyword_index = @keywords.index(keyword) %>
+		<h3><%= keyword %></h3>
+		<%= link_to "delete", user_path(index: @keyword_index, id: current_user.id), :method => :delete %>
+	<% end %>

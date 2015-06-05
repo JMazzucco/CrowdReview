@@ -59,8 +59,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
     plos = PlosApi.new
     @articles = []
+    @keywords = @user.keywords
 
-    @user.keywords.length.times do |index|
+    @keywords.length.times do |index|
       plos.get_articles(@user.keywords[index])
       @results = Article.where('title LIKE :keyword OR abstract LIKE :keyword', keyword: "%#{@user.keywords[index]}%")
       @results.each do |article|
