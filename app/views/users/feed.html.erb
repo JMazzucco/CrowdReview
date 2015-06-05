@@ -2,7 +2,7 @@
 
 <h4>Add new keyword</h4>
 
-<%= form_tag user_path(current_user.id), :method => :patch do |f| %>
+<%= form_tag user_path(current_user.id), :method => :patch, id: 'search-form' do |f| %>
 	<%= text_field_tag :keyword %>
   <%= submit_tag "submit"%>
 <% end %>
@@ -13,9 +13,10 @@
 	<%= link_to "delete", user_path(index: @keyword_index, id: current_user.id), :method => :delete %>
 <% end %>
 
-<hr/>
 
-<div id="article">
+<div id="articles">
   <%= render @articles %>
 </div>
+
+
 

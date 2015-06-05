@@ -58,7 +58,6 @@ class UsersController < ApplicationController
   def feed
     @user = User.find(params[:user_id])
     plos = PlosApi.new
-
     @articles = []
 
     @user.keywords.length.times do |index|
@@ -67,9 +66,13 @@ class UsersController < ApplicationController
       @results.each do |article|
         @articles << article
       end
-    end
-  end
 
+    end
+     # binding.pry
+    # if request.xhr?
+    #  render @articles
+    # end
+  end
 
   def update
     @user = User.find(current_user.id)

@@ -1,4 +1,22 @@
-$.get( "ajax/test.html", function( data ) {
-  $( ".result" ).html( data );
-  alert( "Load was performed." );
-});
+	$(document).on('ready page:load', function() {
+	  $('#search-form').submit(function(event) {
+	    event.preventDefault();
+	 //    var searchValue = $('#search-form').val();
+	 //    var urlPath = window.location.pathname;
+
+		// $.get(urlPath + '/?search=' + searchValue)
+		//       .done(function(data){
+		//         console.log(data);
+		//         $('#articles').html(data);
+		//       });
+	 //   });
+
+	// $.ajax({
+ //    url: '/user',
+ //    type: 'PATCH',
+ //    success: function(result) {
+        alert("HELLO");
+ //    }
+	// });
+
+	});
