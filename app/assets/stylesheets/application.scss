@@ -578,3 +578,27 @@ iframe{
   width:100%;
   height:500px;
 }
+// Here is where the d3.js trendline.js graph code begins
+  .line {
+    stroke: blue;
+    fill:none;
+    stroke-width: 3;
+  }
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+  }
+
+  .axis text {
+    font-size: 10px;
+    font-family: sans-serif;
+  }
+
+  .text-label {
+    font-size: 10px;
+    font-family: sans-serif;
+  }
+  // Here is where the d3.js trendline.js graph code ends
