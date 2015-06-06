@@ -11,12 +11,17 @@
  * file per style scope.
  *
  *= require normalize
- *= require_tree .
  *= require_self
  *
  */
 // @import "bootstrap-sprockets";
 // @import "bootstrap";
+@import "normalize";
+@import "bourbon";
+@import "base/grid-settings";
+@import "neat";
+@import "base/layout";
+@import "base/base";
 
 html{
   width:100%;

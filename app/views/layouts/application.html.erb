@@ -3,9 +3,10 @@
 <html>
   <head>
     <title>CrowdReview</title>
-      <%# stylesheet_link_tag    "normalize" %>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="initial-scale=1.0,width=device-width">
+
       <%= stylesheet_link_tag    "application" %>
-      <%# stylesheet_link_tag    "style" %>
       <%= javascript_include_tag "application" %>
       <%= csrf_meta_tags %>
       <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
@@ -41,9 +42,9 @@
         </div>
       <% end %>
 
-      <!-- <div class="align"> -->
-      <%= yield %>
-      <!-- </div> -->
+      <main>
+        <%= yield %>
+      </main>
 
     </section>
 
