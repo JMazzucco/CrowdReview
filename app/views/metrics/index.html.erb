@@ -5,19 +5,6 @@
  <script src="http://www.amcharts.com/lib/3/themes/light.js"></script>
 
 <h1>User Analytics Dashboard</h1>
-<ul>
-  <% @metrics.each do |article| %>
-    <li>
-    <%= article['title']%>
-      <ul>
-      <li>
-      <%= article['cohorts'] %>
-      <%#= article['viewed'] %>
-      </li>
-      </ul>
-    </li>
-  <% end %>
-</ul>
 
 <!-- Pie chart Code Begins -->
 <div id="wrapper">
