@@ -28,7 +28,7 @@ class MetricsController < ApplicationController
   end
 
   def history
-    data = Metric.sample_data.first["history"].map { |k,v| {age: k, population: v} }
+    data = Metric.sample_data.first["history"].map { |k,v| {yearmonth: k, rate: v} }
     render json: data
   end
 

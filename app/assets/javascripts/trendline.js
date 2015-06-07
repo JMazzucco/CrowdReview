@@ -33,7 +33,7 @@
       .scale(yScale)
       .orient("left");
 
-    d3.csv("usd_euro.csv", function(data) {
+    d3.json("/metrics/history", function(data) {
 
       // extract the x labels for the axis and scale domain
       var xLabels = data.map(function (d) { return d['yearmonth']; })
