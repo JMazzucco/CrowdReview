@@ -16,12 +16,13 @@
  */
 // @import "bootstrap-sprockets";
 // @import "bootstrap";
-@import "normalize";
+// @import "normalize";
 @import "bourbon";
 @import "base/grid-settings";
 @import "neat";
-@import "base/layout";
 @import "base/base";
+@import "base/layout";
+@import "search";
 
 html{
   width:100%;
@@ -29,15 +30,16 @@ html{
 }
 
 .bgalign{
-  width:85%;
-  margin-left:8.0%;
+  // width:85%;
+  // margin-left:8.0%;
+  // padding-top: 60px;
 }
 
 body {
  // background-image: url("contemporary_china.png");
   // background: radial-gradient(ellipse at center,  #0869ad 0%, darken($color, 50%) 100%);
- background-color: #7FDBFF;
- color:black;
+ // background-color: #7FDBFF;
+ // color:black;
 
 // #7FDBFF
 
@@ -63,22 +65,46 @@ body {
 /*.replies .replies .replies .replies .replies {margin-left: 0;}*/
 
 #nav {
-  background-color: #FF7F7F;
+  background-color: #FC726D;
+  position: absolute;
   // #7FDBFF
   // rgba(225, 86, 63, 0.56)
-  height: 60px;
+  height: 50px;
 }
 
-img{
-   margin-top:-4px;
+.site-footer {
+  padding: 5px;
+
+}
+
+// .footer-text{
+//   display: inline-block;
+// }
+
+img {
+  width:30px;
 }
 
 #logo {
   width:195px;
   height:63px;
-  opacity:0.7;
+  // opacity:0.7;
 
 }
+
+.footer-text span {
+ font-family: Verdana;
+
+}
+
+#title{
+  font-weight: bold;
+  font-size: 2em;
+  font-family: 'Montserrat', sans-serif;
+  color: #36454f;
+  margin-left: 3px;
+
+  }
 
 .signup {
   // background-color:rgba(145, 222, 255, 0.72);
@@ -110,6 +136,36 @@ img{
   stroke: #fff;
 }
 
+.site-footer {
+  background-color: #36454f;
+  clear:both;
+  height: 65px;
+  display: block;
+  text-align: center;
+  font-family: Tahoma;
+}
+
+.site-footer span{
+  color: #fff;
+}
+
+.site-footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-text img {
+  width: 60px;
+}
+
+.footer-text span {
+  vertical-align: top;
+  line-height: 1;
+}
+
+.icons {
+  line-height: 1;
+}
 // Here is where the codepen pie chart code starts
 #wrapper {
 

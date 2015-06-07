@@ -4,12 +4,13 @@
   <head>
     <title>CrowdReview</title>
       <meta charset="UTF-8">
-      <meta name="viewport" content="initial-scale=1.0,width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
       <%= stylesheet_link_tag    "application" %>
       <%= javascript_include_tag "application" %>
       <%= csrf_meta_tags %>
       <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </head>
 
@@ -17,10 +18,12 @@
     <nav>
       <div id="nav">
         <div id="mywrapper">
-            <a id="" href="/">
-             <%= image_tag("logo.png", :alt => "",:id => 'logo') %>
-            </a>
-          <div class="signup">
+          <a href="/">
+           <span id="title">CrowdReview</span>
+
+           <%#= image_tag("logo.png", :alt => "",:id => 'logo') %>
+          </a>
+        <div class="signup">
           <% if current_user %>
           <%=link_to "My Feed",user_feed_path(current_user)%>
              | Favourites --
@@ -29,10 +32,11 @@
             <%= link_to "Register", new_user_path %> |
             <%= link_to "Login", :login %>
           <% end %>
-          </div>
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
+
 
     <section class="bgcolor bgalign">
       <% if flash[:notice] %>
@@ -48,12 +52,19 @@
 
     </section>
 
-    <!--
-    <script>
-      bodyHeight = $('body').height();
-      $('.bgcolor').css({height: bodyHeight + 50});
-    </script>
-    -->
+    <footer class="site-footer">
 
+      <div class="footer-text">
+          <span>Articles provided by</span><a href="https://www.plos.org/">
+          <img src="https://www.plos.org/wp-content/uploads/2013/12/copy-plos_logo-white.png" /></a>
+          </a>
+      </div>
+      <div class="icons"><a href="https://github.com/JMazzucco/CrowdReview">
+          <img src="http://dev.bowdenweb.com/a/i/cons/simple-icons/github/github-4096.png" /></a>
+          <a href="https://github.com/JMazzucco/CrowdReview">
+          <img src="http://nme.assets.ipccdn.co.uk/themes/hub/jackrocks/Twitter.png" /></a>
+      </div>
+
+    </footer>
   </body>
 </html>
