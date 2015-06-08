@@ -1,10 +1,12 @@
 main {
 	// @include outer-container;
 	background-color: #fff;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
 }
 
 #nav {
-
 	top: 0;
 	left: 0;
 	width: 100%;
