@@ -26,6 +26,7 @@
 @import "articles";
 @import "users";
 @import "comments";
+@import "feed";
 
 html, body {
   width:100%;
@@ -86,6 +87,12 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.menu-option > img {
+  min-width: 45px;
+  border-radius: 100%;
+  max-height: 35px;
+}
+
 .menu-option:hover {
   background-color: red;
 }
@@ -118,13 +125,10 @@ img {
 #logo {
   width:40px;
   margin-top: 5px;
-
-
 }
 
 .footer-text span {
  font-family: Verdana;
-
 }
 
 #title{
@@ -133,8 +137,7 @@ img {
   font-family: 'Montserrat', sans-serif;
   color: #36454f;
   margin-left: 3px;
-
-  }
+}
 
 .signup {
   // background-color:rgba(145, 222, 255, 0.72);
@@ -151,7 +154,6 @@ img {
 
 .avatar2 {
  border-radius: 135px;
-
 }
 
 .userinfo{
