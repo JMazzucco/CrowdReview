@@ -21,9 +21,7 @@
     <p><%= @article.abstract %></p>
   <% end %>
 
-  <div class="">
-
-
+  <div>
       <%= link_to "Full Text", "http://journals.plos.org/plosone/article?id=#{@article.plos_id}", target: "_blank", class: "full-text-button"%>
   </div>
 

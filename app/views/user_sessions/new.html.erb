@@ -1,8 +1,29 @@
-<h1>Login</h1>
+<div class="login-title-container">
+  <h1>Login</h1>
+</div>
 
-<%= render 'form' %>
+<div class="login-main">
+	<div class="login-form-outer">
+		<div class="login-form-inner">
+		<%= render 'form' %>
+		</div>
+		<a href="#" id="showhidetrigger"><h1>Forgot Password?</h1></a>
+	</div>
 
-<%= link_to 'Back', user_sessions_path %>
+	<div id="showhidetarget">
+		<div class="login-form-outer">
+		<div class="login-form-inner">
+			<%= render 'forgot_password_form' %>
+			</div>
+	 	</div>
+	</div>
+</div>
 
-<h1>Forgot Password?</h1>
-<%= render 'forgot_password_form' %>
+<script type="text/javascript">
+  $(document).ready(function () {
+      $('#showhidetarget').hide();
+      $('#showhidetrigger').click(function () {
+          $('#showhidetarget').toggle(400);
+      });
+  });
+</script>

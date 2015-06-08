@@ -2,13 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.signup-title-container {
+.signup-title-container, .login-title-container {
 	padding-top: 50px;
-
 	background-color: #36454f;
 }
 
-.signup-title-container > h1 {
+.signup-title-container, .login-title-container > h1 {
 	padding: 2% ;
 	color: #fff;
 	font-family: Verdana;
@@ -16,23 +15,34 @@
 	text-align: center;
 }
 
-.signup-form-outer {
+.signup-form-outer, .login-form-outer {
 	background-color: #F2F5F8;
  	margin: auto;
 	margin-top: -2%;
 	width: 100%;
-
   padding: 20px 30% 50px 30%;
 }
 
-.signup-form-inner {
+.signup-form-outer {
+	margin-bottom: 100px;
+}
+
+#showhidetrigger > h1 {
+	text-align: right;
+	padding: 3px;
+}
+
+.signup-form-inner, .login-form-inner {
 	background-color: #fff;
 	padding: 8%;
 	border-radius: 5px;
 
 }
-#user_username, #user_email, #user_password, #user_password_confirmation {
+#user_username, #user_email, #user_password, #user_password_confirmation, #email, #password {
 	background-color: white;
 }
 
-
+.login-main {
+	padding-bottom: 100px;
+	background-color: #F2F5F8;
+}
