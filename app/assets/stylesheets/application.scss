@@ -72,6 +72,30 @@ body {
   height: 50px;
 }
 
+.menu-option{
+  display: inline-block;
+  float: right;
+  height: 50px;
+  padding: 8px;
+  line-height: 2.5;
+  text-decoration: none;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.menu-option:hover {
+  background-color: red;
+}
+
+.menu-option:active{
+  color: gray;
+}
+
+#signup {
+  color: #fff;
+  font-weight: bold;
+}
+
 .site-footer {
   padding: 5px;
 
