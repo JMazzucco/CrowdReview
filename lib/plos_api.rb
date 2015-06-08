@@ -34,7 +34,7 @@ class PlosApi
 
     results.each do |r|
       unless Article.find_by(plos_id: r.id)
-        if ( r.title && has_more_than_ten_words( r.abstract[0] ) && r.authors && r.id && r.published_at )
+        if ( r.title && r.abstract && r.authors && r.id && r.published_at )
           Article.create(title: r.title, abstract: r.abstract[0],
                        publication_date: r.published_at,
                        authors: r.authors.to_sentence,
@@ -42,11 +42,6 @@ class PlosApi
         end
       end
     end
-  end
-
-  private
-  def has_more_than_ten_words(text)
-    text.split.count > 10
   end
 
  end
