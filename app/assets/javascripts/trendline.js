@@ -1,10 +1,11 @@
   $(function() {
     var height = 300;
     var width = 600;
-    var margin = {top: 20, right:20, bottom: 50, left: 20};
+    var margin = {top: 80, right:20, bottom: 50, left: 100};
+    var padding = {top: 20, right:0, bottom: 0, left: 0};
 
     // formatters for axis and labels
-    var currencyFormat = d3.format("$0.2f");
+    var roundFormat = d3.format("2f");
     var decimalFormat = d3.format("0.2f");
 
     var svg = d3.select("body")
@@ -64,7 +65,7 @@
 
       svg.select(".y.axis")
         .attr("transform", "translate(" + (margin.left) + ",0)")
-        .call(yAxis.tickFormat(currencyFormat));
+        .call(yAxis.tickFormat(roundFormat));
 
       // chart title
       svg.append("text")
@@ -73,7 +74,7 @@
         .attr("text-anchor", "middle")
         .style("font-size", "16px")
         .style("font-family", "sans-serif")
-        .text("USD/EURO Exhange Rate");
+        .text("History of Altmetric score");
 
       // x axis label
       svg.append("text")
@@ -81,7 +82,7 @@
         .attr("y", height + margin.bottom)
         .attr("class", "text-label")
         .attr("text-anchor", "middle")
-        .text("Year-Month");
+        .text("Day-Month-Year");
 
       // get the x and y values for least squares
       var xSeries = d3.range(1, xLabels.length + 1);
@@ -113,16 +114,16 @@
       svg.append("text")
         .text("eq: " + decimalFormat(leastSquaresCoeff[0]) + "x + " +
           decimalFormat(leastSquaresCoeff[1]))
-        .attr("class", "text-label")
-        .attr("x", function(d) {return xScale(x2) - 60;})
-        .attr("y", function(d) {return yScale(y2) - 30;});
+        // .attr("class", "text-label")
+        // .attr("x", function(d) {return xScale(x2) - 60;})
+        // .attr("y", function(d) {return yScale(y2) - 30;});
 
       // display r-square on the chart
       svg.append("text")
         .text("r-sq: " + decimalFormat(leastSquaresCoeff[2]))
-        .attr("class", "text-label")
-        .attr("x", function(d) {return xScale(x2) - 60;})
-        .attr("y", function(d) {return yScale(y2) - 10;});
+        // .attr("class", "text-label")
+        // .attr("x", function(d) {return xScale(x2) - 60;})
+        // .attr("y", function(d) {return yScale(y2) - 10;});
 
     });
 
