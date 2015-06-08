@@ -3,66 +3,60 @@
 <%# else %>
 	<!-- <div class="reply"> -->
 <%# end %>
-<div class="bgalign">
+<div class="comment-outer">
+  <div class="bgalign">
 
-
-
-
-<div class="panel-container">
-
-  <% from_reply_form ||= nil %>
-  <div class="links-container">
-
-
-  <% unless from_reply_form %>
-      <p class="comment-links" ><% if current_user && comment.user_id == current_user.id %>
-         <%= link_to 'edit', edit_article_comment_path(@article, comment.id) %>
-      |<% end %>
-    <% end %>
-    <%= link_to 'reply', article_new_comment_path(@article, comment.id) %>
-    </p>
-  </div>
-
-  <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title" id="panel-title"><%= comment.title %>
-
-      </div>
-      <div class="panel-body">
-        <p><%= comment.body %></p>
-      </div>
+    <div class="comment-avatar">
+      <img src="http://www.mdrivesport.com/images/default-avatar.png">
     </div>
 
- <!--  <div class="vote-button">
-  	<%#= button_to '+1', article_comment_upvote_path(comment.article_id, comment.id), method: :post %>
-  </div>
-    <div class="total-votes">
-    <%#= pluralize(comment.votes.count, "vote") %>
-  </div> -->
+    <div class="panel-inner-container">
 
-  <% if current_user && current_user.admin %>
-    <% if comment.flagged %>
-        <%= form_for([@article, comment]) do |f| %>
-        <%= f.hidden_field :flagged, value: false %>
-        <%= f.submit 'Flagged' %>
+    <!-- Username -->
+    <div class="comment-username">
+      <% user = User.find_by(id: comment.user_id) %>
+      <h1><%= user.username %></h1>
+    </div>
+
+    <div class="details-container">
+        <span class="comment-details">
+         <% if comment.created_at == comment.updated_at %>
+            added on <%= l(comment.created_at, format: '%B, %d %Y') %>
+         <% else %>
+            edited on <%= l(comment.updated_at, format: '%B, %d %Y') %>
+         <% end %>
+
+         <% from_reply_form ||= nil %>
+         <% unless from_reply_form %>
+          <% if current_user && comment.user_id == current_user.id %>
+             / <%= link_to 'edit', edit_article_comment_path(@article, comment.id) %>
+          /<% end %>
+          <% end %>
+          <%= link_to 'reply', article_new_comment_path(@article, comment.id) %>
+      </span>
+    </div>
+
+        <div class="comment-title">
+          <h3><%= comment.title %></h3>
+        </div>
+        <div class="comment-body">
+          <p><%= comment.body %></p>
+        </div>
+      </div>
+
+      <% if current_user && current_user.admin %>
+        <% if comment.flagged %>
+            <%= form_for([@article, comment]) do |f| %>
+            <%= f.hidden_field :flagged, value: false %>
+            <%= f.submit 'Flagged' %>
+            <% end %>
+        <% else %>
+          <%= form_for([@article, comment]) do |f| %>
+          <%= f.hidden_field :flagged, value: true %>
+          <%= f.submit 'Flag comment' %>
+          <% end %>
         <% end %>
-    <% else %>
-      <%= form_for([@article, comment]) do |f| %>
-      <%= f.hidden_field :flagged, value: true %>
-      <%= f.submit 'Flag comment' %>
       <% end %>
-    <% end %>
-  <% end %>
-
-  <div class="links-container">
-    <span class="timestamp">
-     <% if comment.created_at == comment.updated_at %>
-        Added on <%= l(comment.created_at, format: '%B, %d %Y') %>
-     <% else %>
-        <em>Edited on <%= l(comment.updated_at, format: '%B, %d %Y %H:%M:%S') %></em>
-     <% end %>
-     </span>
-  </div>
+    </div>
 </div>
 </div>
-

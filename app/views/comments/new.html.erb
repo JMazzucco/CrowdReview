@@ -1,8 +1,10 @@
-<h1>New comment</h1>
-<% if @comment.parent %>
-  <%= @comment.parent.body %>
- <p class="text-muted">Added by <strong><%= link_to User.find_by(id: @comment.parent.user_id).username, user_path(@comment.parent.user_id)%>.</strong> on
-	    <%= l(@comment.parent.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
-<% end %>
-
-<%= render 'form' %>
+<div class="new-edit-comment ">
+  <h1>Post a comment</h1>
+</div>
+<div class="new-comment-main">
+	<div class="new-comment-form-outer">
+		<div class="new-form-inner">
+		<%= render 'form' %>
+		</div>
+	</div>
+</div>
