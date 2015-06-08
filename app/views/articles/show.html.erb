@@ -5,15 +5,7 @@
 
 
 <div class="abstract-and-details">
-  <% if current_user %>
-    <%= form_for([@article, @favorite]) do |f| %>
-      <% if current_user.favorites.find_by(article: @article) %>
-        <%= f.submit 'Unfavorite', class: 'btn btn-warning' %>
-      <% else %>
-        <%= f.submit 'Favorite', class: 'btn btn-success' %>
-      <% end %>
-    <% end %>
-  <% end %>
+
 
 
   <% if @article.abstract %>
@@ -24,6 +16,17 @@
   <div>
       <%= link_to "Full Text", "http://journals.plos.org/plosone/article?id=#{@article.plos_id}", target: "_blank", class: "full-text-button"%>
   </div>
+
+
+  <% if current_user %>
+    <%= form_for([@article, @favorite]) do |f| %>
+      <% if current_user.favorites.find_by(article: @article) %>
+        <%= f.submit 'Unfavorite', class: 'btn btn-warning' %>
+      <% else %>
+        <%= f.submit 'Favorite', class: 'btn btn-success' %>
+      <% end %>
+    <% end %>
+  <% end %>
 
   <hr/>
 
@@ -43,10 +46,12 @@
 
 </div>
 
-<%= comments_tree_for @comments %>
+
 
 <div class="comments-container">
       <h1 class="header"><%= @comments.count %> Comments</h1>
+
+      <%= comments_tree_for @comments %>
       <p>Click the button below to start a new thread:</p>
       <p>
         <%= link_to 'Add new topic', article_new_comment_path(@article), id: "new_comment", remote: true, class: 'btn btn-primary btn-lg' %>
