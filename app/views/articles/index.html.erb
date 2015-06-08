@@ -1,37 +1,24 @@
-<h4><small><%= page_entries_info @articles %></small></h4>
-
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="search-bar">
 	<div class="box">
 	  <div class="container-1">
 		<span class="icon"><i class="fa fa-search"></i></span>
 		<%= form_tag "/articles?search", :method => 'get'  do  %>
-		        <%= text_field_tag :search, params[:search], placeholder: "" %>
+		        <%= text_field_tag :search, params[:search], placeholder: "search for articles" %>
 		<% end %>
 	  </div>
 	</div>
 </div>
 
-<!-- temp link for testing the user feed view -->
-<% if current_user %>
-	<h4><%=link_to "My Feed (temp)",user_feed_path(current_user)%></h4>
-<% end %>
+<div class="search-results">
+	<div class="results-count">
+		<h4><small><%= page_entries_info @articles %></small></h4>
+	</div>
 
-<div class="results-count">
+	<div class="results-display">
+		<%= render @articles %>
+	</div>
 
-	<% if @articles %>
-	<p><%= @articles.count %> results</p>
+	<%= paginate @articles %>
 </div>
-		<% @articles.each do |article| %>
-		   	<div class="results-container">
-					<%= link_to "/articles/#{article.id}" do %>
-					<!-- <div class="results-odd"> -->
-					<p class="results-text"><%= raw(article.title) %></p>
-					<% end %>
-				</div>
-		<% end %>
-	<% end %>
-
-
- <%= paginate @articles %>
 

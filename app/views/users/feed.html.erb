@@ -1,26 +1,31 @@
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="search-bar">
-	<h4>My Feed</h4>
+	<div class="box">
+	  <div class="container-1">
+
   <div class="keyword-form">
-		<%= form_tag user_path(current_user.id), remote: true, method: :patch, id: 'search-form'  do |f| %>
+		<%= form_tag user_path(current_user.id), remote: true, method: :patch, id: 'search-form', placeholder: "Eded"  do |f| %>
 		<%= text_field_tag :keyword %>
 		<% end %>
 	  </div>
 	</div>
 </div>
-
-<div id="keywords">
-	<%= render partial: "keyword" %>
 </div>
 
 
 
-<hr/>
+<!-- <div id="articles">
+
+</div> -->
 
 
-<div id="articles">
-	<%= render partial: "articles" %>
-	<hr/>
-	<h6>All articles are provided by <a href="https://www.plos.org/"><strong>PLOS</strong></a></em></h6>
+<div class="search-results">
+	<div id="keywords">
+		<%= render partial: "keyword" %>
+	</div>
+	<div class="results-display">
+		<%= render partial: "articles" %>
+	</div>
 </div>
 
 

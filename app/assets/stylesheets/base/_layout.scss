@@ -1,0 +1,18 @@
+main {
+	// @include outer-container;
+	background-color: #fff;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+#nav {
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: $base-background-color;
+	color: $base-font-color;
+
+	background-color: #FC726D;
+  position: absolute;
+}

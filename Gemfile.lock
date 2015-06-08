@@ -43,6 +43,9 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
+    bourbon (4.2.3)
+      sass (~> 3.4)
+      thor
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
@@ -109,6 +112,9 @@ GEM
     multi_json (1.11.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    neat (1.7.2)
+      bourbon (>= 4.0)
+      sass (>= 3.3)
     netrc (0.10.3)
     newrelic_rpm (3.12.0.288)
     nokogiri (1.6.6.2)
@@ -209,6 +215,7 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
+  bourbon
   byebug
   carrierwave
   closure_tree
@@ -220,6 +227,7 @@ DEPENDENCIES
   kaminari
   letter_opener
   mini_magick
+  neat
   newrelic_rpm
   pg
   plos

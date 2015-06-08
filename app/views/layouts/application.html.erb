@@ -3,56 +3,76 @@
 <html>
   <head>
     <title>CrowdReview</title>
-      <%# stylesheet_link_tag    "normalize" %>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
       <%= stylesheet_link_tag    "application" %>
-      <%# stylesheet_link_tag    "style" %>
       <%= javascript_include_tag "application" %>
       <%= csrf_meta_tags %>
       <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </head>
 
   <body>
-    <nav>
-      <div id="nav">
-        <div id="mywrapper">
-            <a id="" href="/">
-             <%= image_tag("logo.png", :alt => "",:id => 'logo') %>
+    <div id="mywrapper">
+        <nav>
+          <div id="nav">
+              <a href="/">
+               <span id="title">CrowdReview</span>
+               <%= image_tag("lab-512.png", :alt => "",:id => 'logo') %>
+              </a>
+              <% if current_user %>
+                <% if current_user.avatar.url(:thumb) %>
+                  <%= link_to image_tag(current_user.avatar.url(:thumb)), user_path(current_user), :class => "menu-option"%>
+                <% else %>
+                  <%= link_to current_user.username, user_path(current_user), :class => "menu-option"%>
+                <% end %>
+                <%= link_to "Log out", user_session_path("current"), :method => :delete, :class => "menu-option" %>
+
+              <% else %>
+                  <%= link_to "Sign up", new_user_path, :class => "menu-option", :id => "signup" %>
+                  <%= link_to "Login", :login, :class => "menu-option" %>
+              <% end %>
+              <% if current_user %>
+                <%= link_to "Favourites", user_path(current_user.id), :class => "menu-option" %>
+                <%= link_to "Feed", user_feed_path(current_user.id), :class => "menu-option" %>
+              <% else %>
+                <%= link_to "Favourites", :login, :class => "menu-option" %>
+                <%= link_to "Feed", :login, :class => "menu-option" %>
+              <% end %>
+            <a href="/">
+              <div class="menu-option">
+                About
+              </div>
             </a>
-          <div class="signup">
-          <% if current_user %>
-          <%=link_to "My Feed",user_feed_path(current_user)%>
-             | Favourites --
-            <%= image_tag current_user.avatar.url(:thumb),:class => 'avatar2'%>  Signed in as <%= link_to current_user.email, user_path(current_user)%> | <%= link_to "Log out", user_session_path("current"), :method => :delete %>
-          <% else %>
-            <%= link_to "Register", new_user_path %> |
-            <%= link_to "Login", :login %>
-          <% end %>
+        </div>
+      </nav>
+
+      <section class="bgcolor bgalign">
+        <% if flash[:notice] %>
+          <div>
+            <p id="notice"><%= flash[:notice] %></p>
+            <p id="alert"><%= flash[:alert] %></p>
           </div>
+        <% end %>
+        <main>
+          <%= yield %>
+        </main>
+      </section>
+
+      <footer class="site-footer">
+        <div class="footer-text">
+            <span>Articles provided by</span><a href="https://www.plos.org/">
+            <img src="https://www.plos.org/wp-content/uploads/2013/12/copy-plos_logo-white.png" /></a>
+            </a>
         </div>
-      </div>
-    </nav>
-
-    <section class="bgcolor bgalign">
-      <% if flash[:notice] %>
-        <div>
-          <p id="notice"><%= flash[:notice] %></p>
-          <p id="alert"><%= flash[:alert] %></p>
+        <div class="icons"><a href="https://github.com/JMazzucco/CrowdReview">
+            <img src="http://dev.bowdenweb.com/a/i/cons/simple-icons/github/github-4096.png" /></a>
+            <a href="https://github.com/JMazzucco/CrowdReview">
+            <img src="http://nme.assets.ipccdn.co.uk/themes/hub/jackrocks/Twitter.png" /></a>
         </div>
-      <% end %>
-
-      <!-- <div class="align"> -->
-      <%= yield %>
-      <!-- </div> -->
-
-    </section>
-
-    <!--
-    <script>
-      bodyHeight = $('body').height();
-      $('.bgcolor').css({height: bodyHeight + 50});
-    </script>
-    -->
-
+      </footer>
+    </div>
   </body>
 </html>

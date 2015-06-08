@@ -1,21 +1,18 @@
-<div class="bgalign">
 
+<div class="title-container">
   <h1><%= raw(@article.title) %></h1>
-
+</div>
 
 <div class="abstract-and-details">
 
-
-
-  <% if @article.authors %>
-    <h4>Authors:</h4>
-    <p><%= @article.authors %></p>
+  <% if @article.abstract %>
+    <h4 class="article-heading" id="abstract-title">Abstract</h3>
+    <p class="abstract-content"><%= @article.abstract %></p>
   <% end %>
 
-  <% if @article.publication_date %>
-    <h4>Publication Date:</h4>
-    <p><%= @article.publication_date.to_formatted_s(:long_ordinal) %></p>
-  <% end %>
+  <div>
+      <%= link_to "Full Text", "http://journals.plos.org/plosone/article?id=#{@article.plos_id}", target: "_blank", class: "full-text-button"%>
+  </div>
 
   <% if current_user %>
     <%= form_for([@article, @favorite]) do |f| %>
@@ -27,27 +24,33 @@
     <% end %>
   <% end %>
 
+  <hr/>
 
-  <% if @article.abstract %>
-    <h3 id="abstract-title">Abstract</h3>
-    <p class="abstract"><%= @article.abstract %></p>
+  <% if @article.authors %>
+    <h4 class="article-heading">Authors</h4>
+    <p><%= @article.authors %></p>
   <% end %>
 
+  <% if @article.publication_date %>
+    <h4 class="article-heading">Publication Date</h4>
+    <p><%= @article.publication_date.strftime("%B %d, %Y") %></p>
+  <% end %>
+  </div>
+</div>
 
-  <%= link_to "Full Text",  "http://journals.plos.org/plosone/article?id=#{@article.plos_id}", target: "_blank"%>
+<div class="comments-container">
+      <h1 class="header"><%= @comments.count %> Comments</h1>
 
-  <p><%= link_to "Back to all articles", articles_path %></p>
+
+      <%= comments_tree_for @comments %>
 
   </div>
+  <div class="comment-form">
 
-</div>
-</div>
-<%= comments_tree_for @comments %>
 
-<div class="container">
-      <h1>Join the discussion</h1>
       <p>Click the button below to start a new thread:</p>
       <p>
-        <%= link_to 'Add new topic', article_new_comment_path(@article), id: "new_comment", remote: true, class: 'btn btn-primary btn-lg' %>
+        <%= link_to 'Add new topic', article_new_comment_path(@article), id: "new_comment", class: 'btn btn-primary btn-lg' %>
       </p>
+    </div>
 </div>
