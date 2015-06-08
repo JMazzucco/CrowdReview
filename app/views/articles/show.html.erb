@@ -1,22 +1,10 @@
-<div class="bgalign">
 
+<div class="title-container">
   <h1><%= raw(@article.title) %></h1>
+</div>
 
 
 <div class="abstract-and-details">
-
-
-
-  <% if @article.authors %>
-    <h4>Authors:</h4>
-    <p><%= @article.authors %></p>
-  <% end %>
-
-  <% if @article.publication_date %>
-    <h4>Publication Date:</h4>
-    <p><%= @article.publication_date.to_formatted_s(:long_ordinal) %></p>
-  <% end %>
-
   <% if current_user %>
     <%= form_for([@article, @favorite]) do |f| %>
       <% if current_user.favorites.find_by(article: @article) %>
@@ -29,23 +17,38 @@
 
 
   <% if @article.abstract %>
-    <h3 id="abstract-title">Abstract</h3>
-    <p class="abstract"><%= @article.abstract %></p>
+    <h4 class="article-heading" id="abstract-title">Abstract</h3>
+    <p><%= @article.abstract %></p>
   <% end %>
 
+  <div class="">
 
-  <%= link_to "Full Text",  "http://journals.plos.org/plosone/article?id=#{@article.plos_id}", target: "_blank"%>
 
-  <p><%= link_to "Back to all articles", articles_path %></p>
+      <%= link_to "Full Text", "http://journals.plos.org/plosone/article?id=#{@article.plos_id}", target: "_blank", class: "full-text-button"%>
+  </div>
+
+  <hr/>
+
+  <% if @article.authors %>
+    <h4 class="article-heading">Authors</h4>
+    <p><%= @article.authors %></p>
+  <% end %>
+
+  <% if @article.publication_date %>
+    <h4 class="article-heading">Publication Date</h4>
+    <p><%= @article.publication_date.strftime("%B %d, %Y") %></p>
+  <% end %>
+
+  <!-- <p><%#= link_to "Back to all articles", articles_path %></p> -->
 
   </div>
 
 </div>
-</div>
+
 <%= comments_tree_for @comments %>
 
-<div class="container">
-      <h1>Join the discussion</h1>
+<div class="comments-container">
+      <h1 class="header"><%= @comments.count %> Comments</h1>
       <p>Click the button below to start a new thread:</p>
       <p>
         <%= link_to 'Add new topic', article_new_comment_path(@article), id: "new_comment", remote: true, class: 'btn btn-primary btn-lg' %>

@@ -22,10 +22,11 @@ $blue: #477dca;
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;
+$light-red: #FC726D;
 
 
 // Font Colors
-$base-background-color: #fff;
+$base-background-color: $light-red;
 $base-font-color: $dark-gray;
 $action-color: $blue;
 
