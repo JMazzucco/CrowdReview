@@ -17,6 +17,6 @@ class ArticleTest < ActiveSupport::TestCase
 
   test "validatation accept valid absract" do
     adequate = build(:boundary_case_one_past)
-    assert  adequate.save, "rejecting a nine word abstract"
+    assert  adequate.save, "accepting an eleven word abstract"
   end
 end
