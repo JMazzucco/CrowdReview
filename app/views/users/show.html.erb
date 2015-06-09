@@ -37,7 +37,6 @@
 <hr/>
 	<h3>Past Comments</h3>
 	<% if @comments.count > 0 %>
-  <% binding.pry %>
 		<% @comments.each do |comment| %>
 			<p class="past-comment-quote">&ldquo;<%= comment.body %>&rdquo;</p>
       <h5 class="past-comment-article">
