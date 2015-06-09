@@ -29,12 +29,86 @@ AmCharts.makeChart = function(a, b, c) {
   };
 };
 
+
+/**
+ * Fourth chart
+ */
+AmCharts.makeChart("chartdiv1", {
+  "type": "pie",
+  "theme": "light",
+  "dataProvider": [{
+    "country": "Public(Pub)",
+    "litres": 4773
+  }, {
+    "country": "Research scientists(Sci)",
+    "litres": 2023
+  }, {
+    "country": "Science communicators(Com)",
+    "litres": 256
+  }, {
+    "country": "Practitioners(Doc)",
+    "litres": 423
+
+  }],
+  "valueField": "litres",
+  "titleField": "country",
+  "pullOutRadius": 10,
+  "titles": [{
+    "text": "First chart"
+  }, {
+    "text": "Article mention by member",
+    "bold": false
+  }]
+});
+
+
+var chart = AmCharts.makeChart( "chartdiv", {
+  "type": "pie",
+  "theme": "light",
+  "path": "http://www.amcharts.com/lib/3/",
+  "legend": {
+    "markerType": "circle",
+    "position": "right",
+    "marginRight": 80,
+    "autoMargins": false
+  },
+  "dataProvider": [ {
+    "country": "Public(Pub)",
+    "litres": 4773
+  }, {
+    "country": "Research scientists(Sci)",
+    "litres": 2023
+  }, {
+    "country": "Practitioners(Doc)",
+    "litres": 423
+
+  }, {
+    "country": "Science communicators(Com)",
+    "litres": 256
+  } ],
+  "valueField": "litres",
+  "titleField": "country",
+  "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+  "export": {
+    "enabled": true
+  },
+  "titles": [{
+    "text": "First chart"
+  }, {
+    "text": "Article mention by member",
+    "bold": false
+  }]
+});
+
+
 /**
  * First chart
  */
-var chart = AmCharts.makeChart("chartdiv1", {
-  "type": "serial",
+var chart = AmCharts.makeChart("chartdiv4", {
+"type": "serial",
   "theme": "light",
+  "marginRight": 70,
+  "path": "http://www.amcharts.com/lib/3/",
   "dataProvider": [{
     "country": "USA",
     "visits": 3025,
@@ -84,24 +158,33 @@ var chart = AmCharts.makeChart("chartdiv1", {
     "visits": 441,
     "color": "#CD0D74"
   }],
+  "valueAxes": [{
+    "axisAlpha": 0,
+    "position": "left",
+    "title": "Visitors from country"
+  }],
   "startDuration": 1,
   "graphs": [{
+    "balloonText": "<b>[[category]]: [[value]]</b>",
     "fillColorsField": "color",
     "fillAlphas": 0.9,
     "lineAlpha": 0.2,
     "type": "column",
     "valueField": "visits"
   }],
+  "chartCursor": {
+    "categoryBalloonEnabled": false,
+    "cursorAlpha": 0,
+    "zoomable": false
+  },
   "categoryField": "country",
   "categoryAxis": {
-    "labelsEnabled": false
+    "gridPosition": "start",
+    "labelRotation": 45
   },
-  "titles": [{
-    "text": "First chart"
-  }, {
-    "text": "Scroll down for the next chart",
-    "bold": false
-  }]
+  "export": {
+    "enabled": true
+  }
 });
 
 /**
@@ -236,48 +319,4 @@ var chart = AmCharts.makeChart("chartdiv3", {
   }]
 });
 
-/**
- * Fourth chart
- */
-AmCharts.makeChart("chartdiv4", {
-  "type": "pie",
-  "theme": "light",
-  "dataProvider": [{
-    "country": "Lithuania",
-    "litres": 501.9
-  }, {
-    "country": "Czech Republic",
-    "litres": 301.9
-  }, {
-    "country": "Ireland",
-    "litres": 201.1
-  }, {
-    "country": "Germany",
-    "litres": 165.8
-  }, {
-    "country": "Australia",
-    "litres": 139.9
-  }, {
-    "country": "Austria",
-    "litres": 128.3
-  }, {
-    "country": "UK",
-    "litres": 99
-  }, {
-    "country": "Belgium",
-    "litres": 60
-  }, {
-    "country": "The Netherlands",
-    "litres": 50
-  }],
-  "valueField": "litres",
-  "titleField": "country",
-  "pullOutRadius": 10,
-  "titles": [{
-    "text": "Fourth chart"
-  }, {
-    "text": "The last one",
-    "bold": false
-  }]
-});
 })
