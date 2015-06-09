@@ -37,26 +37,26 @@ AmCharts.makeChart("chartdiv1", {
   "type": "pie",
   "theme": "light",
   "dataProvider": [{
-    "country": "Public(Pub)",
-    "litres": 4773
+    "member": "Public(Pub)",
+    "number": 4773
   }, {
-    "country": "Research scientists(Sci)",
-    "litres": 2023
+    "member": "Research scientists(Sci)",
+    "number": 2023
   }, {
-    "country": "Science communicators(Com)",
-    "litres": 256
+    "member": "Science communicators(Com)",
+    "number": 256
   }, {
-    "country": "Practitioners(Doc)",
-    "litres": 423
+    "member": "Practitioners(Doc)",
+    "number": 423
 
   }],
-  "valueField": "litres",
-  "titleField": "country",
+  "valueField": "number",
+  "titleField": "member",
   "pullOutRadius": 10,
   "titles": [{
-    "text": "First chart"
+    "text": "Article mentions by members"
   }, {
-    "text": "Article mention by member",
+    "text": "Number of people mentioning this article who are members of given categories",
     "bold": false
   }]
 });
@@ -69,33 +69,33 @@ var chart = AmCharts.makeChart( "chartdiv", {
   "legend": {
     "markerType": "circle",
     "position": "right",
-    "marginRight": 80,
+    "marginRight": 10,
     "autoMargins": false
   },
   "dataProvider": [ {
-    "country": "Public(Pub)",
-    "litres": 4773
+    "member": "Public(Pub)",
+    "number": 4773
   }, {
-    "country": "Research scientists(Sci)",
-    "litres": 2023
+    "member": "Research scientists(Sci)",
+    "number": 2023
   }, {
-    "country": "Practitioners(Doc)",
-    "litres": 423
+    "member": "Practitioners(Doc)",
+    "number": 423
 
   }, {
-    "country": "Science communicators(Com)",
-    "litres": 256
+    "member": "Science communicators(Com)",
+    "number": 256
   } ],
-  "valueField": "litres",
-  "titleField": "country",
+  "valueField": "number",
+  "titleField": "member",
   "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
   "export": {
     "enabled": true
   },
   "titles": [{
-    "text": "First chart"
+    "text": "Article mentions by members"
   }, {
-    "text": "Article mention by member",
+    "text": "Number of people mentioning this article who are members of given categories",
     "bold": false
   }]
 });
@@ -110,34 +110,34 @@ var chart = AmCharts.makeChart("chartdiv4", {
   "marginRight": 70,
   "path": "http://www.amcharts.com/lib/3/",
   "dataProvider": [{
-    "country": "cited_by_twitter_count",
+    "Socialmedia": "cited_by_twitter_count",
     "visits": 200,
     "color": "#04D215"
   }, {
-    "country": "cited_by_facebook_count",
+    "Socialmedia": "cited_by_facebook_count",
     "visits": 150,
     "color": "#0D8ECF"
   }, {
-    "country": "cited_by_google+_count",
+    "Socialmedia": "cited_by_google+_count",
     "visits": 110,
     "color": "#0D52D1"
   }, {
-    "country": "cited_by_blogposts_count",
+    "Socialmedia": "cited_by_blogposts_count",
     "visits": 75,
     "color": "#2A0CD0"
   }, {
-    "country": "cited_by_linkedin_count",
+    "Socialmedia": "cited_by_linkedin_count",
     "visits": 50,
     "color": "#8A0CCF"
   }, {
-    "country": "cited_by_wikipedia_count",
+    "Socialmedia": "cited_by_wikipedia_count",
     "visits": 35,
     "color": "#CD0D74"
   }],
   "valueAxes": [{
     "axisAlpha": 0,
     "position": "left",
-    "title": "Visitors from country"
+    "title": "Citations in Social Media"
   }],
   "startDuration": 1,
   "graphs": [{
@@ -153,7 +153,7 @@ var chart = AmCharts.makeChart("chartdiv4", {
     "cursorAlpha": 0,
     "zoomable": false
   },
-  "categoryField": "country",
+  "categoryField": "Socialmedia",
   "categoryAxis": {
     "gridPosition": "start",
     "labelRotation": 45
@@ -162,9 +162,9 @@ var chart = AmCharts.makeChart("chartdiv4", {
     "enabled": true
   },
   "titles": [{
-    "text": "Second chart"
+    "text": "Cited_by_x_count"
   }, {
-    "text": "Scroll down for the next chart",
+    "text": "Count of unique authors, where x is one of below platform",
     "bold": false
   }]
 });
@@ -250,9 +250,9 @@ var chart = AmCharts.makeChart("chartdiv5", {
     "enabled": true
   },
   "titles": [{
-    "text": "Third chart"
+    "text": "Altmetric score for this article"
   }, {
-    "text": "Scroll down for the next chart",
+    "text": "Measure of the quality and quantity of attention received",
     "bold": false
   }]
 });
@@ -318,9 +318,9 @@ var chart = AmCharts.makeChart("chartdiv6", {
       "enabled": true
      },
     "titles": [{
-    "text": "Fourth chart"
+    "text": "No of Readers on different platforms"
   }, {
-    "text": "Scroll down for the next chart",
+    "text": "Readers using services which help discover scholarly references",
     "bold": false
   }]
 
