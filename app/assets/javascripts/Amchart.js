@@ -255,6 +255,74 @@ var chart = AmCharts.makeChart("chartdiv5", {
     "text": "Scroll down for the next chart",
     "bold": false
   }]
+});
+
+
+/**
+ * Horizontal Bar chart
+ */
+var chart = AmCharts.makeChart("chartdiv6", {
+  "type": "serial",
+  "path": "http://www.amcharts.com/lib/3/",
+  "categoryField": "year",
+  "rotate": true,
+  "startDuration": 1,
+  "marginLeft": 60,
+  "marginRight": 40,
+  "marginTop": 70,
+  "marginBottom": 30,
+  "categoryAxis": {
+    "gridPosition": "start",
+    "position": "left"
+  },
+  "trendLines": [],
+  "graphs": [
+    {
+      "balloonText": "Readers:[[value]]",
+      "fillAlphas": 0.8,
+      "id": "AmGraph-1",
+      "lineAlpha": 0.2,
+      "title": "Income",
+      "type": "column",
+      "valueField": "income"
+    }
+  ],
+  "guides": [],
+  "valueAxes": [
+    {
+      "id": "ValueAxis-1",
+      "position": "top",
+      "axisAlpha": 0
+    }
+  ],
+  "allLabels": [],
+  "balloon": {},
+  "titles": [],
+  "dataProvider": [
+    {
+      "year": "Mendeley",
+      "income": 200,
+    },
+    {
+      "year": "Citeulike",
+      "income": 100,
+
+    },
+    {
+      "year": "Connotea",
+      "income": 50,
+
+    },
+  ],
+    "export": {
+      "enabled": true
+     },
+    "titles": [{
+    "text": "Fourth chart"
+  }, {
+    "text": "Scroll down for the next chart",
+    "bold": false
+  }]
 
 });
 
