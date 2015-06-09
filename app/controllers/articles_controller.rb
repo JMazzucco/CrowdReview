@@ -26,11 +26,12 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+
     if current_user && current_user.admin
       @comments = @article.comments.hash_tree
-    else
-      @comments = @article.comments.hash_tree
-      #@comments = @article.comments.where.not(flagged: true).hash_tree
+    elsif current_user || current_user.nil?
+      #@comments = @article.comments.hash_tree
+      @comments = @article.comments.where(flagged: nil).hash_tree
     end
       @favorite = @article.favorites.build
   end
