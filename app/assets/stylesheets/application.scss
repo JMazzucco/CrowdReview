@@ -253,11 +253,21 @@ iframe{
 }
 
 #chartdiv{
-  margin-top:80px;
+  margin-top:40px;
 }
 
 #analyticsbg{
    background-color: #7FDBFF;
    // #7FDBFF
    // #0B4F6C
+}
+
+.chartgap1 {
+  height: 40px;
+  width: 1px;
+  border-left: 2px dotted #ccc;
+  margin: 10px auto;
+}
+.analyticsheading{
+  padding-top:15px;
 }
