@@ -1,5 +1,5 @@
 $(function() {
-  var width = 960,
+  var width = 1200,
       height = 500;
 
   var color = d3.scale.category20();
@@ -9,7 +9,7 @@ $(function() {
       .linkDistance(30)
       .size([width, height]);
 
-  var svg = d3.select("body").append("svg")
+  var svg = d3.select("#forcedirect").append("svg")
       .attr("width", width)
       .attr("height", height);
 

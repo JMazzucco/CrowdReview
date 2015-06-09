@@ -27,6 +27,11 @@ class MetricsController < ApplicationController
     render json: data
   end
 
+  def history
+    data = Metric.sample_data.first["history"].map { |k,v| {yearmonth: k, rate: v} }
+    render json: data
+  end
+
   def show
     @metric = Metric.find(params[:id])
   end

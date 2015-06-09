@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     collection do
       get "sample_data"
       get "cohorts"
+      get "history"
     end
   end
 
