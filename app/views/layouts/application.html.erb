@@ -35,10 +35,10 @@
                   <%= link_to "Login", :login, :class => "menu-option" %>
               <% end %>
               <% if current_user %>
-                <%= link_to "Favourites", user_path(current_user.id), :class => "menu-option" %>
+                <%#= link_to "Favourites", user_path(current_user.id), :class => "menu-option" %>
                 <%= link_to "Feed", user_feed_path(current_user.id), :class => "menu-option" %>
               <% else %>
-                <%= link_to "Favourites", :login, :class => "menu-option" %>
+                <%#= link_to "Favourites", :login, :class => "menu-option" %>
                 <%= link_to "Feed", :login, :class => "menu-option" %>
               <% end %>
             <a href="/">

@@ -4,7 +4,7 @@
 	  <div class="container-1">
 
   <div class="keyword-form">
-		<%= form_tag user_path(current_user.id), remote: true, method: :patch, id: 'search-form', placeholder: "Eded"  do |f| %>
+		<%= form_tag user_path(current_user.id), remote: true, method: :patch, id: 'search-form' do |f| %>
 		<%= text_field_tag :keyword %>
 		<% end %>
 	  </div>

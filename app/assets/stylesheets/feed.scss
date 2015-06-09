@@ -1,4 +1,60 @@
 #keyword {
 	background-color: #fff;
+}
+
+#keywords {
+  padding: 1%;
+  display: block;
+	padding: 2% ;
+}
+
+.keyword {
+  display: inline-block;
+  margin-bottom: 4%;
+
+	// border: 1px solid black;
+
+
+}
+
+.key-delete {
+	display: inline-block;
+	float: left;
+		padding: 2% ;
+}
+
+.key-delete > h1 {
+	font-size: 1.2em;
+}
+
+.key-text {
+	  display: inline-block;
+  float: left;
+  margin-right: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  background-color: #477dca;
+  border-radius: 3px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+a > span.delete {
+	color: #fff;
 
 }
