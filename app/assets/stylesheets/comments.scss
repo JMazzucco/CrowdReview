@@ -4,6 +4,8 @@
 .comment-outer {
 	display: inline-block;
 	border-bottom: 1px solid #D3D3D3;
+	width: 100%;
+	padding-top: 3%;
 }
 
 .panel-inner-container {
@@ -11,6 +13,10 @@
 	float: left;
 	width: 80%;
 	margin-bottom: 3%;
+}
+
+.comments-container .header {
+	margin-bottom: 0;
 }
 
 .comment-avatar > img {
@@ -68,7 +74,6 @@
 .comment-title > h3 {
 	font-size: 1.1em;
 	padding-top: 8px;
-
 	margin: 0;
 	font-family: Verdana
 }
@@ -83,6 +88,10 @@
 	font-family: Verdana
 }
 
+.topic-button-wrapper {
+	padding: 4% 0 8% 0;
+
+}
 
 // edit/new comment page
 

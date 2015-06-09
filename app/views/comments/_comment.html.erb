@@ -1,19 +1,13 @@
-<%# if comment.parent_id.nil? %>
-	<!-- <div class="root"> -->
-<%# else %>
-	<!-- <div class="reply"> -->
-<%# end %>
-<div class="comment-outer">
-  <div class="bgalign">
 
+<div class="comment-outer">
     <div class="comment-avatar">
       <img src="http://www.mdrivesport.com/images/default-avatar.png">
     </div>
 
     <div class="panel-inner-container">
-    <div class="comment-username">
-      <% user = User.find_by(id: comment.user_id) %>
-      <h1><%= user.username %></h1>
+      <div class="comment-username">
+        <% user = User.find_by(id: comment.user_id) %>
+        <h1><%= user.username %></h1>
     </div>
 
     <div class="details-container">
@@ -31,7 +25,7 @@
           /<% end %>
           <% end %>
           <%= link_to 'reply', article_new_comment_path(@article, comment.id) %>
-      </span>
+        </span>
     </div>
       <div class="comment-title">
         <h3><%= comment.title %></h3>
@@ -54,6 +48,4 @@
           <% end %>
         <% end %>
       <% end %>
-    </div>
-</div>
-</div>
+  </div>

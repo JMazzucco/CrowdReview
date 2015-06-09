@@ -44,13 +44,14 @@
 
       <%= comments_tree_for @comments %>
 
-  </div>
-  <div class="comment-form">
 
-
-      <p>Click the button below to start a new thread:</p>
-      <p>
-        <%= link_to 'Add new topic', article_new_comment_path(@article), id: "new_comment", class: 'btn btn-primary btn-lg' %>
-      </p>
+    <div class="topic-button-wrapper">
+    <%= link_to 'Add new topic', article_new_comment_path(@article), id: "new_comment", class: "full-text-button" %>
     </div>
+  </div>
 </div>
+
+<!-- <div class="comment-form"> -->
+
+<!--   </div>
+</div> -->
