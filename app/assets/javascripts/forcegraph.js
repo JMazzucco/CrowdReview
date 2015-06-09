@@ -1,5 +1,5 @@
 $(function() {
-  var width = 1300,
+  var width = 1200,
       height = 500;
 
   var color = d3.scale.category20();
