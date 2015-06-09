@@ -31,36 +31,39 @@ AmCharts.makeChart = function(a, b, c) {
 
 
 /**
- * Fourth chart
+ * Pie chart without legend
  */
-AmCharts.makeChart("chartdiv1", {
-  "type": "pie",
-  "theme": "light",
-  "dataProvider": [{
-    "member": "Public(Pub)",
-    "number": 4773
-  }, {
-    "member": "Research scientists(Sci)",
-    "number": 2023
-  }, {
-    "member": "Science communicators(Com)",
-    "number": 256
-  }, {
-    "member": "Practitioners(Doc)",
-    "number": 423
+// AmCharts.makeChart("chartdiv1", {
+//   "type": "pie",
+//   "theme": "light",
+//   "dataProvider": [{
+//     "member": "Public(Pub)",
+//     "number": 4773
+//   }, {
+//     "member": "Research scientists(Sci)",
+//     "number": 2023
+//   }, {
+//     "member": "Science communicators(Com)",
+//     "number": 256
+//   }, {
+//     "member": "Practitioners(Doc)",
+//     "number": 423
 
-  }],
-  "valueField": "number",
-  "titleField": "member",
-  "pullOutRadius": 10,
-  "titles": [{
-    "text": "Article mentions by members"
-  }, {
-    "text": "Number of people mentioning this article who are members of given categories",
-    "bold": false
-  }]
-});
+//   }],
+//   "valueField": "number",
+//   "titleField": "member",
+//   "pullOutRadius": 10,
+//   "titles": [{
+//     "text": "Article mentions by members"
+//   }, {
+//     "text": "Number of people mentioning this article who are members of given categories",
+//     "bold": false
+//   }]
+// });
 
+/**
+ * Pie chart with legend
+ */
 
 var chart = AmCharts.makeChart( "chartdiv", {
   "type": "pie",
@@ -102,7 +105,7 @@ var chart = AmCharts.makeChart( "chartdiv", {
 
 
 /**
- * First chart
+ * Bar chart with social media citations
  */
 var chart = AmCharts.makeChart("chartdiv4", {
 "type": "serial",
@@ -170,7 +173,7 @@ var chart = AmCharts.makeChart("chartdiv4", {
 });
 
 /**
- * NEW Third chart
+ * Almetric score line chart
  */
 
 var chart = AmCharts.makeChart("chartdiv5", {
