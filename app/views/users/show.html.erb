@@ -5,36 +5,46 @@
   <div class="profile-form-outer">
     <div class="profile-form-inner">
 
-  <h3>Profile</h3>
-  <%= image_tag @user.avatar.url(:medium),:class => 'avatar col-md-4' %>
-  <p class="profile-label">Username: <span><%= @user.username %></span></p>
-  <p class="profile-label">Email: <span><%= @user.email %></span></p>
-  <p class="profile-label">Joined on: <span><%= @user.created_at.strftime("%B %d, %Y") %></span></p>
+  <h3>Profile Details</h3>
 
-
-
+  <div class="profile-details">
+    <p class="profile-label">Username: <span><%= @user.username %></span></p>
+    <p class="profile-label">Email: <span><%= @user.email %></span></p>
+    <p class="profile-label">Joined on: <span><%= @user.created_at.strftime("%B %d, %Y") %></span></p>
+  </div>
+ <% if @user.avatar.url(:medium) %>
+    <%= image_tag @user.avatar,:class => 'profile-avatar' %>
+  <% end %>
+<div class="clearfix">
+</div>
 <hr/>
 <% if current_user.id == @user.id %>
   <h3>Favorite Articles</h3>
-  <div >
-    <% @user.favorites.each do |favorite| %>
+  <div>
+
+  <% if @user.favorites.count > 0 %>
+
+   <% @user.favorites.each do |favorite| %>
     <p class="fav-link"><%= link_to raw(favorite.article.title), article_path(favorite.article)%></p>
     <%= link_to "Delete", user_favorite_path(@user, favorite), :class => "delete-button", method: :delete%>
     <% end %>
+  <% else %>
+    <p>No articles have been favorited</p>
+<% end %>
+
   </div>
 <% end %>
 <hr/>
 	<h3>Past Comments</h3>
-	<% if @comments %>
+	<% if @comments.count > 0 %>
+  <% binding.pry %>
 		<% @comments.each do |comment| %>
-
 			<p class="past-comment-quote">&ldquo;<%= comment.body %>&rdquo;</p>
       <h5 class="past-comment-article">
-
       <%= link_to truncate(raw(Article.find(comment.article_id).title), length:120), article_path(comment.article_id) %></h5>
 		<% end %>
 	<% else %>
-		<p>No comments have been made yet</p>
+		<p>No comments have been posted</p>
 	<% end %>
 
   <% if current_user.admin? %>
