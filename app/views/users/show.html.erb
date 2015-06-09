@@ -1,29 +1,37 @@
-<h1 class= "align" style="text-decoration:underline">User Profile</h1>
-  <div class="container">
-    <div class="row">
-  	<%= image_tag @user.avatar.url(:medium),:class => 'avatar col-md-4' %>
-      <div class="userinfo col-md-8">
-      <p>Username:<%= @user.username %></p>
-      <p>Email:<%= @user.email %></p>
-      </div>
-    </div>
-  </div>
+<div class="profile-title-container">
+  <%= @user.username %>
+</div>
+<div class="profile-main">
+  <div class="profile-form-outer">
+    <div class="profile-form-inner">
+
+  <h3>Profile</h3>
+  <%= image_tag @user.avatar.url(:medium),:class => 'avatar col-md-4' %>
+  <p class="profile-label">Username: <span><%= @user.username %></span></p>
+  <p class="profile-label">Email: <span><%= @user.email %></span></p>
+  <p class="profile-label">Joined on: <span><%= @user.created_at.strftime("%B %d, %Y") %></span></p>
+
+
+
+<hr/>
 <% if current_user.id == @user.id %>
   <h3>Favorite Articles</h3>
   <div >
     <% @user.favorites.each do |favorite| %>
-    <p><%= link_to raw(favorite.article.title), article_path(favorite.article)%>
-    <%= link_to "Delete", user_favorite_path(@user, favorite),method: :delete%></p>
+    <p class="fav-link"><%= link_to raw(favorite.article.title), article_path(favorite.article)%></p>
+    <%= link_to "Delete", user_favorite_path(@user, favorite), :class => "delete-button", method: :delete%>
     <% end %>
   </div>
 <% end %>
-
-	<h3>Your comments</h3>
-	<p>Total: <%= @total %></p>
+<hr/>
+	<h3>Past Comments</h3>
 	<% if @comments %>
 		<% @comments.each do |comment| %>
-			<h4><%= link_to raw(Article.find(comment.article_id).title), article_path(comment.article_id) %></h4>
-			<p><em><%= comment.body %></em></p>
+
+			<p class="past-comment-quote">&ldquo;<%= comment.body %>&rdquo;</p>
+      <h5 class="past-comment-article">
+
+      <%= link_to truncate(raw(Article.find(comment.article_id).title), length:120), article_path(comment.article_id) %></h5>
 		<% end %>
 	<% else %>
 		<p>No comments have been made yet</p>
@@ -33,7 +41,7 @@
    <%= link_to "See all users", users_path %>
   <% end %>
 
-  <p><%= link_to "Back to all articles", articles_path %></p>
+
 
 
 

@@ -48,3 +48,122 @@
 	padding-bottom: 100px;
 	background-color: #F2F5F8;
 }
+
+// User profile page
+
+.profile-title-container{
+	padding-top: 50px;
+	background-color: #36454f;
+}
+
+.profile-title-container  {
+	padding: 2% ;
+	color: #fff;
+	font-family: Verdana;
+	font-size: 2em;
+	text-align: center;
+	padding-bottom: 3%;
+	 vertical-align: top;
+  line-height: 1;
+}
+
+.profile-title-container {
+	padding-top: 70px;
+}
+
+.profile-title-container > img {
+	border-radius: 100%;
+}
+
+.profile-main {
+	padding-bottom: 100px;
+	background-color: #F2F5F8;
+}
+
+.profile-form-inner {
+	background-color: #fff;
+	padding: 8%;
+	border-radius: 5px;
+	}
+
+.profile-form-outer {
+	background-color: #F2F5F8;
+ 	margin: auto;
+	margin-top: -2%;
+	width: 100%;
+  padding: 20px 10% 50px 10%;
+}
+
+.profile-form-inner > h3 {
+  color: #36454f;
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 2;
+  margin-bottom: 3%;
+}
+
+.fav-link a {
+	display: block;
+}
+
+
+.delete-button {
+
+	display: inline-block;
+
+  margin-right: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  background-color: #477dca;
+  border-radius: 3px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.25em 1em;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  margin-bottom: 4%
+}
+
+.past-comment-quote {
+  color: #477dca;
+  margin: 0;
+  font-weight: bold;
+
+}
+
+.past-comment-article > a{
+	color: #333;
+  font-size: 0.8em;
+	margin-bottom: 4%;
+}
+
+.past-comment-article {
+	margin-bottom: 4%;
+	padding: 3%;
+}
+
+.profile-label {
+  color: #477dca;
+  margin: 3% 0;
+  font-weight: bold;
+
+}
+
+.profile-label span {
+	  color: #333;
+  font-size: 1em;
+
+}
