@@ -31,9 +31,8 @@ class ArticlesController < ApplicationController
       @comments = @article.comments.hash_tree
     elsif current_user || current_user.nil?
       #@comments = @article.comments.hash_tree
-      @comments = @article.comments.where(flagged: nil).hash_tree
+      @comments = @article.comments.where(flagged: [nil, false]).hash_tree
     end
       @favorite = @article.favorites.build
   end
-
 end
