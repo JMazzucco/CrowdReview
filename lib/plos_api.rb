@@ -29,9 +29,8 @@ class PlosApi
     end
   end
 
-  def get_articles(keyword, start=0, rows=10)
+  def get_articles(keyword, start=0, rows=50)
     results = @client.search(keyword, start, rows)
-
     results.each do |r|
       unless Article.find_by(plos_id: r.id)
         if ( r.title && has_more_than_ten_words( r.abstract[0] ) && r.authors && r.id && r.published_at )

@@ -5,15 +5,15 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:search]
-      @articles = dbsearch( "%#{params[:search]}%")
+      # @articles = dbsearch( "%#{params[:search]}%")
         #if less than 10 articles return from the db, search for articles in PLOS and add them to the db
-        if @articles.count <= 10
+        # if @articles.count <= 10
           plos = PlosApi.new
           plos.get_articles(params[:search])
           @articles = dbsearch( "%#{params[:search]}%")
-        end
-    else
-      @articles = Article.all
+        # end
+     else
+       @articles = Article.all
     end
 
     @articles = @articles.order('articles.publication_date DESC').page(params[:page])
@@ -34,7 +34,5 @@ class ArticlesController < ApplicationController
     end
       @favorite = @article.favorites.build
   end
-
-
 
 end

@@ -68,18 +68,15 @@ class UsersController < ApplicationController
         @articles << article
       end
     end
-    # binding.pry
-    # if request.xhr?
-    #  render @articles
-    # end
 
-    respond_to do |f|
-      f.html
-      f.js
-    end
+    # respond_to do |f|
+    #   f.html
+    #   f.js
+    # end
   end
 
   def update
+
     @user = User.find(current_user.id)
     keyword = keyword_param['keyword'].downcase.strip
 
